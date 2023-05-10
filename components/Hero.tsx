@@ -10,7 +10,7 @@ export default function Hero({}: Props) {
     words: [
       "Hi, my name is Harper Foley.",
       "Bombs => Banking => Backend",
-      "Full Stack Dev"
+      "Full Stack Dev",
     ],
     loop: true,
     delaySpeed: 2000,
