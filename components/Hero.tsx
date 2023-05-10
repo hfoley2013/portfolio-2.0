@@ -1,9 +1,9 @@
-'use client'
-import React from 'react'
-import {Cursor, useTypewriter} from 'react-simple-typewriter'
-import BackgroundCircles from './BackgroundCircles'
+'use client';
+import React from 'react';
+import {Cursor, useTypewriter} from 'react-simple-typewriter';
+import BackgroundCircles from './BackgroundCircles';
 
-type Props = {}
+type Props = {};
 
 export default function Hero({}: Props) {
   const [text, count] = useTypewriter({
