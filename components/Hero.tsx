@@ -19,18 +19,19 @@ export default function Hero({}: Props) {
   });
 
   return (
-    <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
+    <div className="flex flex-col items-center justify-center h-screen space-y-8 overflow-hidden text-center">
       <BackgroundCircles />
       <Image
         src="/headshot.jpg"
         alt="Profile Image of Harper Foley"
         width={256}
         height={256}
-        className="relative rounded-full h-32 w-32 max-w-xs max-h-xs mx-auto object-cover"
+        className="relative object-cover w-32 h-32 max-w-xs mx-auto rounded-full max-h-xs"
+        priority
       />
       <div className="z-10">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">Full Stack Developer</h2>
-        <h1 className="text-4xl lg:text-5xl font-semibold px-10">
+        <h1 className="px-10 text-4xl font-semibold lg:text-5xl">
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
