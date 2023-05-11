@@ -6,7 +6,12 @@ type Props = {}
 
 function About({}: Props) {
   return (
-    <div className="relative flex flex-col items-center h-screen px-10 mx-auto text-center md:text-left md:flex-row max-w-7xl justify-evenly">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+      className="relative flex flex-col items-center h-screen px-10 mx-auto text-center md:text-left md:flex-row max-w-7xl justify-evenly"
+    >
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         About
       </h3>
@@ -34,7 +39,7 @@ function About({}: Props) {
           <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
           background
         </h4>
-        <p className="text-sm">
+        <p className="text-base">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum distinctio voluptas doloremque provident magni, quod, placeat officia quaerat vitae maiores ex? Excepturi repudiandae similique amet velit deleniti, repellendus facere praesentium.
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere harum ea distinctio hic! Optio, id? Voluptas quis alias eligendi quasi dolore aspernatur similique. Voluptate officiis cum, eligendi eius explicabo id.
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, ipsum magnam nemo corrupti sit quod quas aliquam reprehenderit eum perferendis amet tenetur! Possimus labore inventore beatae, eligendi minus ullam nam!
@@ -43,7 +48,7 @@ function About({}: Props) {
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. At sapiente optio tenetur aut culpa asperiores eveniet accusamus eum itaque ipsam deleniti, aliquam dolores fugiat quis. Animi, aperiam fugit. Molestias, sit.
         </p>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
