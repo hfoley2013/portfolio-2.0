@@ -26,12 +26,12 @@ export default function Hero({}: Props) {
         alt="Profile Image of Harper Foley"
         width={256}
         height={256}
-        className="relative object-cover w-32 h-32 max-w-xs mx-auto rounded-full max-h-xs"
+        className="relative object-cover w-32 h-32 mx-auto rounded-full"
         priority
       />
-      <div className="z-10">
+      <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">Full Stack Developer</h2>
-        <h1 className="px-10 text-4xl font-semibold lg:text-5xl">
+        <h1 className="px-10 text-5xl font-semibold lg:text-6xl">
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
@@ -41,7 +41,7 @@ export default function Hero({}: Props) {
           <Link href="#experience" className="heroButton">Experience</Link>
           <Link href="#skills" className="heroButton">Skills</Link>
           <Link href="#projects" className="heroButton">Projects</Link>
-          <Link href="#resume" className="heroButton">Resume</Link>
+          {/* <Link href="#resume" className="heroButton">Resume</Link> */}
         </div>
       </div>
     </div>

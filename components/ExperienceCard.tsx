@@ -51,11 +51,9 @@ function ExperienceCard({}: Props) {
         </p>
 
         <ul className='ml-5 space-y-4 text-lg list-disc'>
-          <li>Point1</li>
-          <li>Point1</li>
-          <li>Point1</li>
-          <li>Point1</li>
-          <li>Point1</li>
+          <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam cum ad soluta debitis error dolorem modi vel repellendus quisquam, et perspiciatis officia suscipit quae adipisci nobis eveniet perferendis tempore ullam!</li>
+          <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam cum ad soluta debitis error dolorem modi vel repellendus quisquam, et perspiciatis officia suscipit quae adipisci nobis eveniet perferendis tempore ullam!</li>
+          <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam cum ad soluta debitis error dolorem modi vel repellendus quisquam, et perspiciatis officia suscipit quae adipisci nobis eveniet perferendis tempore ullam!</li>
         </ul>
         
       </div>
