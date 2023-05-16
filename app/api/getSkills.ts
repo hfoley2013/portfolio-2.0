@@ -1,19 +1,19 @@
 // import { NextResponse } from 'next/server';
 // import { sanityClient } from '../../sanity/sanityClient';
 // import { groq } from "next-sanity";
-// import { Social } from "../../typings";
+// import { Skill } from "../../typings";
  
 // const query = groq`
-//   *[_type == "social"]
+//   *[_type == "skill"]
 // `
 
 // type Data = {
-//   socials: Social[];
+//   skills: Skill[];
 // }
 
 // export async function GET() {
 //   const res = await sanityClient.fetch(query);
-//   const socials: Social[] = await res.json();
+//   const skills: Skill[] = await res.json();
  
-//   return NextResponse.json({ socials });
+//   return NextResponse.json({ skills });
 // }

@@ -1,19 +1,22 @@
 // import { NextResponse } from 'next/server';
 // import { sanityClient } from '../../sanity/sanityClient';
 // import { groq } from "next-sanity";
-// import { Social } from "../../typings";
+// import { Project } from "../../typings";
  
 // const query = groq`
-//   *[_type == "social"]
-// `
+//   *[_type == "project"] {
+//     ...,
+//     technologies[]->
+//   }
+// `;
 
 // type Data = {
-//   socials: Social[];
-// }
+//   projects: Project[];
+// };
 
 // export async function GET() {
 //   const res = await sanityClient.fetch(query);
-//   const socials: Social[] = await res.json();
+//   const projects: Project[] = await res.json();
  
-//   return NextResponse.json({ socials });
-// }
+//   return NextResponse.json({ projects });
+// };

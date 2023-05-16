@@ -9,8 +9,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Home() {
+
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+      
       <Header />
       
       <section id="hero" className="snap-start">
@@ -38,14 +40,14 @@ export default function Home() {
       </section>
 
       <Link href="#hero">
-        <footer className="sticky bottom-5 w-full cursor-pointer">
+        <footer className="sticky w-full cursor-pointer bottom-5">
           <div className="flex items-center justify-center">
             <Image 
               src="/RainierRanch.png"
               alt="Footer Logo"
               height={128}
               width={128}
-              className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
+              className="w-10 h-10 rounded-full cursor-pointer filter grayscale hover:grayscale-0"
             />
           </div>
         </footer>
