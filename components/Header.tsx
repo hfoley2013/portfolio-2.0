@@ -47,7 +47,7 @@ export default function Header({}: Props) {
           />
         </motion.div>
 
-          <Link href="/#contact">
+          <Link href="/#contact" scroll={false}>
             <motion.div 
               initial={{
                 x: 500,

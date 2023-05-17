@@ -37,11 +37,11 @@ export default function Hero({}: Props) {
         </h1>
 
         <div className="pt-5">
-          <Link href="/#about" className="heroButton">About</Link>
-          <Link href="/#experience" className="heroButton">Experience</Link>
-          <Link href="/#skills" className="heroButton">Skills</Link>
-          <Link href="/#projects" className="heroButton">Projects</Link>
-          {/* <Link href="#resume" className="heroButton">Resume</Link> */}
+          <Link href="/#about" scroll={false} className="heroButton">About</Link>
+          <Link href="/#experience" scroll={false} className="heroButton">Experience</Link>
+          <Link href="/#skills" scroll={false} className="heroButton">Skills</Link>
+          <Link href="/#projects" scroll={false} className="heroButton">Projects</Link>
+          {/* <Link href="#resume" scroll={false} className="heroButton">Resume</Link> */}
         </div>
       </div>
     </div>
