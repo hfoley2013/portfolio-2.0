@@ -6,6 +6,7 @@ import ExperienceCard from './ExperienceCard'
 type Props = {}
 
 function Experience({}: Props) {
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
