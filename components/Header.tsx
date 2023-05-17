@@ -5,9 +5,11 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Social } from '../typings'
 
-type Props = {}
+type Props = {
+  socials: Social[];
+}
 
-export default function Header({}: Props) {
+export default function Header({ socials }: Props) {
   return (
     <>
       <header className="sticky top-0 z-20 flex items-start justify-between p-5 mx-auto max-w-7xl xl:items-center">
@@ -26,14 +28,14 @@ export default function Header({}: Props) {
             duration: 1.5
           }}
           className="flex flex-row items-center">
-            {/* {socials.map((social) => (
+            {socials.map((social) => (
               <SocialIcon 
                 key={social._id}
                 url={social.url}
                 fgColor='gray'
                 bgColor='transparent'  
               />
-            ))} */}
+            ))}
         </motion.div>
 
           <Link href="/#contact" scroll={false}>
