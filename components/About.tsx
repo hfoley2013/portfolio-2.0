@@ -1,10 +1,13 @@
 'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
+import { PageInfo } from '@/typings'
 
-type Props = {}
+type Props = {
+  pageInfo: PageInfo
+}
 
-function About({}: Props) {
+function About({ pageInfo }: Props) {
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -40,12 +43,7 @@ function About({}: Props) {
           background
         </h4>
         <p className="text-base">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum distinctio voluptas doloremque provident magni, quod, placeat officia quaerat vitae maiores ex? Excepturi repudiandae similique amet velit deleniti, repellendus facere praesentium.
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere harum ea distinctio hic! Optio, id? Voluptas quis alias eligendi quasi dolore aspernatur similique. Voluptate officiis cum, eligendi eius explicabo id.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, ipsum magnam nemo corrupti sit quod quas aliquam reprehenderit eum perferendis amet tenetur! Possimus labore inventore beatae, eligendi minus ullam nam!
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam similique vel, eum placeat, excepturi cumque eos sit ipsam accusamus quidem odit, ex tenetur voluptates nulla alias tempora deserunt? Totam, accusantium?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum eos veniam sapiente eum minima, asperiores dolor sequi consequatur unde, omnis suscipit explicabo illum quibusdam consectetur cum? Officiis iste sapiente delectus?
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. At sapiente optio tenetur aut culpa asperiores eveniet accusamus eum itaque ipsam deleniti, aliquam dolores fugiat quis. Animi, aperiam fugit. Molestias, sit.
+          {pageInfo.backgroundInformation}
         </p>
       </div>
     </motion.div>
