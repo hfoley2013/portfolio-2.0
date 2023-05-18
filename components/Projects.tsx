@@ -6,7 +6,7 @@ import { Project } from '../typings'
 import { urlForImage } from '@/sanity/lib/image'
 
 type Props = {
-  projects: Project[]
+  projects?: Project[]
 }
 
 function Projects({ projects }: Props) {
@@ -23,7 +23,7 @@ function Projects({ projects }: Props) {
       </h3>
 
       <div className="relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
-        {projects.map((project, i) => (
+        {projects?.map((project, i) => (
           <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-20 space-y-5 snap-center md:p-44">
             <motion.img 
               initial={{
@@ -41,13 +41,13 @@ function Projects({ projects }: Props) {
             <div className="max-w-6xl px-0 space-y-10 md:px-10">
               <h4 className="text-4xl font-semibold text-center">
                 <span className="underline decoration-[#F7AB0A]/50">
-                  Case Study {i+1} of {projects.length}:
+                  Case Study {i+1} of {projects?.length}:
                 </span>{" "}
                 {project?.title}
               </h4>
 
               <div className="flex items-center justify-center space-x-2">
-                {project.technologies.map((technology) => (
+                {project?.technologies.map((technology) => (
                   <Image
                     key={i}
                     src={urlForImage(technology.image.asset).url()}

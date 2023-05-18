@@ -5,7 +5,7 @@ import Skill from '../components/Skill'
 import { Skill as SkillType } from '../typings'
 
 type Props = {
-  skills: SkillType[]
+  skills?: SkillType[]
 }
 
 function Skills({ skills }: Props) {

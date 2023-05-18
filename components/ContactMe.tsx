@@ -6,7 +6,7 @@ import { PageInfo } from '@/typings'
 
 
 type Props = {
-  pageInfo: PageInfo
+  pageInfo?: PageInfo
 }
 
 type Inputs = {
@@ -36,22 +36,22 @@ function ContactMe({ pageInfo }: Props) {
         <h4 className="text-4xl font-semibold text-center">
           Got a project in mind?{" "}
           <span className="decoration-[#F7AB0A]/50 underline">
-            Let's Talk.
+            Let&apos;s Talk.
           </span>
         </h4>
         
         <div className="space-y-10">
           <div className="flex items-center justify-center space-x-5">
             <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse"/>
-            <p className="text-2xl">{pageInfo.phoneNumber}</p>
+            <p className="text-2xl">{pageInfo?.phoneNumber}</p>
           </div>
           <div className="flex items-center justify-center space-x-5">
             <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse"/>
-            <p className="text-2xl">{pageInfo.email}</p>
+            <p className="text-2xl">{pageInfo?.email}</p>
           </div>
           <div className="flex items-center justify-center space-x-5">
             <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse"/>
-            <p className="text-2xl">{pageInfo.address}</p>
+            <p className="text-2xl">{pageInfo?.address}</p>
           </div>
         </div>
 

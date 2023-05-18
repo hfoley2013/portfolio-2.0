@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { PageInfo } from '@/typings'
 
 type Props = {
-  pageInfo: PageInfo
+  pageInfo?: PageInfo
 }
 
 function About({ pageInfo }: Props) {
@@ -43,7 +43,7 @@ function About({ pageInfo }: Props) {
           background
         </h4>
         <p className="text-base">
-          {pageInfo.backgroundInformation}
+          {pageInfo?.backgroundInformation}
         </p>
       </div>
     </motion.div>
