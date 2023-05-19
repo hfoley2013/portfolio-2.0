@@ -25,18 +25,6 @@ function Projects({ projects }: Props) {
       <div className="relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
         {projects?.map((project, i) => (
           <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-20 space-y-5 snap-center md:p-44">
-            <motion.img 
-              initial={{
-                y: -300,
-                opacity: 0,
-              }}
-              transition={{ duration: 1.2 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              src={urlForImage(project?.image.asset).url()}
-              alt={project.title}
-              className=""
-            />
 
             <div className="max-w-6xl px-0 space-y-10 md:px-10">
               <h4 className="text-4xl font-semibold text-center">
@@ -45,6 +33,21 @@ function Projects({ projects }: Props) {
                 </span>{" "}
                 {project?.title}
               </h4>
+            
+            <div className='flex items-center justify-center'>
+              <motion.img 
+                initial={{
+                  y: -300,
+                  opacity: 0,
+                }}
+                transition={{ duration: 1.2 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                src={urlForImage(project?.image.asset).url()}
+                alt={project.title}
+                className="w-3/5 h-auto"
+              />
+            </div>
 
               <div className="flex items-center justify-center space-x-2">
                 {project?.technologies.map((technology) => (
@@ -52,9 +55,9 @@ function Projects({ projects }: Props) {
                     key={i}
                     src={urlForImage(technology.image.asset).url()}
                     alt={technology.title}
-                    width={250}
-                    height={250}
-                    className="w-5 h-5"
+                    width={0}
+                    height={0}
+                    className="w-10 h-10"
                   />
                 ))}
               </div>
