@@ -15,7 +15,7 @@ import { fetchSocials } from '../utils/fetchSocials'
 
 export default async function Home() {
   const pageInfo = await fetchPageInfo();
-  const experience = await fetchExperience();
+  const experiences = await fetchExperience();
   const skills = await fetchSkills();
   const projects = await fetchProjects();
   const socials = await fetchSocials();
@@ -25,27 +25,27 @@ export default async function Home() {
       <Header socials={socials} />
 
       <section id="hero" className="snap-start">
-        <Hero />
+        <Hero pageInfo={pageInfo} />
       </section>
       
       <section id="about" className="snap-center">
-        <About />
+        <About pageInfo={pageInfo} />
       </section>
       
       <section id="experience" className="snap-center">
-        <WorkExperience />
+        <WorkExperience experiences={experiences} />
       </section>
   
       <section id="skills" className="snap-start">
-        <Skills />
+        <Skills skills={skills} />
       </section>
 
       <section id="projects" className="snap-start">
-        <Projects />
+        <Projects projects={projects} />
       </section>
 
       <section id="contact" className="snap-start">
-        <ContactMe />
+        <ContactMe pageInfo={pageInfo} />
       </section>
 
       <Link href="/#hero" scroll={false}>

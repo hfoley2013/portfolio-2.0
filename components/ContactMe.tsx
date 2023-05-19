@@ -2,8 +2,13 @@
 import React from 'react'
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid"
 import { useForm, SubmitHandler } from "react-hook-form"
+import { PageInfo } from '@/typings'
 
-type Props = {}
+
+type Props = {
+  pageInfo?: PageInfo
+}
+
 type Inputs = {
   name: string;
   email: string;
@@ -11,7 +16,7 @@ type Inputs = {
   message: string;
 };
 
-function ContactMe({}: Props) {
+function ContactMe({ pageInfo }: Props) {
   const { 
     register, 
     handleSubmit, 
@@ -31,22 +36,22 @@ function ContactMe({}: Props) {
         <h4 className="text-4xl font-semibold text-center">
           Got a project in mind?{" "}
           <span className="decoration-[#F7AB0A]/50 underline">
-            Let's Talk.
+            Let&apos;s Talk.
           </span>
         </h4>
         
         <div className="space-y-10">
           <div className="flex items-center justify-center space-x-5">
             <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse"/>
-            <p className="text-2xl">+18302795914</p>
+            <p className="text-2xl">{pageInfo?.phoneNumber}</p>
           </div>
           <div className="flex items-center justify-center space-x-5">
             <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse"/>
-            <p className="text-2xl">harper.e.foley@gmail.com</p>
+            <p className="text-2xl">{pageInfo?.email}</p>
           </div>
           <div className="flex items-center justify-center space-x-5">
             <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse"/>
-            <p className="text-2xl">123 Dev Lane</p>
+            <p className="text-2xl">{pageInfo?.address}</p>
           </div>
         </div>
 
