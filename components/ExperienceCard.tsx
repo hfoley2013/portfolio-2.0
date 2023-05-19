@@ -5,7 +5,7 @@ import { Experience } from '@/typings'
 import { urlForImage } from '@/sanity/lib/image'
 
 type Props = {
-  experience: Experience
+  experience?: Experience
 }
 
 function ExperienceCard({ experience }: Props) {
@@ -19,16 +19,16 @@ function ExperienceCard({ experience }: Props) {
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        src={urlForImage(experience?.companyImage.asset).url()} 
-        alt={experience.company}
+        src={experience? urlForImage(experience.companyImage.asset).url() : ''} 
+        alt={experience?.company}
         className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
       />
 
       <div className="px-0 md:px-10">
-        <h4 className="text-4xl font-light">{experience.jobTitle}</h4>
-        <p className="mt-1 text-2xl font-bold">{experience.company}</p>
+        <h4 className="text-4xl font-light">{experience?.jobTitle}</h4>
+        <p className="mt-1 text-2xl font-bold">{experience?.company}</p>
         <div className="flex my-2 space-x-2">
-          {experience.technologies.map((technology) => (
+          {experience?.technologies?.map((technology) => (
             <Image
               key={technology._id}
               src={urlForImage(technology.image.asset).url()}
@@ -40,11 +40,13 @@ function ExperienceCard({ experience }: Props) {
           ))}
         </div>
         <p className="py-5 text-gray-300 uppercase">
-          {new Date(experience.dateStarted).toDateString()}{" "}-{" "}{experience.isCurrentlyWorkingHere ? "Present" : new Date(experience.dateEnded).toDateString()}
+          {new Date(experience?.dateStarted).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
+          {" "}—{" "}
+          {experience?.isCurrentlyWorkingHere ? "Present" : new Date(experience?.dateEnded).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
         </p>
 
         <ul className='ml-5 space-y-4 overflow-y-scroll text-lg list-disc h-96 w-4/5 pr-5 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80'>
-          {experience.points.map((point, i) => (
+          {experience?.points.map((point, i) => (
             <li key={i}>
               {point}
             </li>
