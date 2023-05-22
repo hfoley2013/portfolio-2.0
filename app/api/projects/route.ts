@@ -11,6 +11,6 @@ const query = groq`
 `;
 
 export async function GET() {
-  const projects: Project[] = await client.fetch(query);
+  const projects: Project[] = await client.fetch(query, { next: { revalidate: 60 } });
   return NextResponse.json({ projects })
 }

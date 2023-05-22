@@ -7,6 +7,6 @@ const query = groq`
   *[_type == "skill"]
 `
 export async function GET() {
-  const skills: Skill[] = await client.fetch(query);
+  const skills: Skill[] = await client.fetch(query, { next: { revalidate: 60 } });
   return NextResponse.json({ skills })
 }
