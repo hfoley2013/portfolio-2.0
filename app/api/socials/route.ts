@@ -8,6 +8,6 @@ const query = groq`
 `
 
 export async function GET() {
-  const socials: Social[] = await client.fetch(query);
+  const socials: Social[] = await client.fetch(query, { next: { revalidate: 60 } });
   return NextResponse.json({ socials })
 }
