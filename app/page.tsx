@@ -44,7 +44,7 @@ export default async function Home() {
         <Projects projects={projects} />
       </section>
 
-      <section id="contact" className="min-h-screen snap-start">
+      <section id="contact" className="min-h-screen scale-x-50 scale-y-75 sm:scale-x-100 sm:scale-y-100 snap-start">
         <ContactMe pageInfo={pageInfo} />
       </section>
 
