@@ -5,7 +5,7 @@ import WorkExperience from '../components/WorkExperience'
 import Skills from '../components/Skills'
 import Projects from '../components/Projects'
 import ContactMe from '../components/ContactMe'
-import Link from 'next/link'
+// import Link from 'next/link'
 import Image from 'next/image'
 import { fetchPageInfo } from '../utils/fetchPageInfo'
 import { fetchExperience } from '../utils/fetchExperience'
@@ -48,7 +48,8 @@ export default async function Home() {
         <ContactMe pageInfo={pageInfo} />
       </section>
 
-      <Link href="/#hero" scroll={false}>
+      {/* <Link href="/#hero" scroll={false}> */}
+      <a href="/#hero">
         <footer className="sticky w-full cursor-pointer bottom-5">
           <div className="flex items-center justify-center">
             <Image 
@@ -60,7 +61,8 @@ export default async function Home() {
             />
           </div>
         </footer>
-      </Link>
+      </a>
+      {/* </Link> */}
 
     </div>
   );

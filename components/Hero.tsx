@@ -3,7 +3,7 @@ import React from 'react';
 import {Cursor, useTypewriter} from 'react-simple-typewriter';
 import BackgroundCircles from './BackgroundCircles';
 import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { PageInfo } from '@/typings';
 import { urlForImage } from '@/sanity/lib/image';
 
@@ -43,10 +43,14 @@ export default function Hero({ pageInfo }: Props) {
         </h1>
     
         <div className="flex flex-wrap justify-center m-2">
-          <Link href="/#about" scroll={false} className="heroButton">About</Link>
+          {/* <Link href="/#about" scroll={false} className="heroButton">About</Link>
           <Link href="/#experience" scroll={false} className="heroButton">Experience</Link>
           <Link href="/#skills" scroll={false} className="heroButton">Skills</Link>
-          <Link href="/#projects" scroll={false} className="heroButton">Projects</Link>
+          <Link href="/#projects" scroll={false} className="heroButton">Projects</Link> */}
+          <a href="/#about" className="heroButton">About</a>
+          <a href="/#experience" className="heroButton">Experience</a>
+          <a href="/#skills" className="heroButton">Skills</a>
+          <a href="/#projects" className="heroButton">Projects</a>
         </div>
       </div>
     </div>
