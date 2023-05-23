@@ -24,10 +24,10 @@ function Projects({ projects }: Props) {
 
       <div className="relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
         {projects?.map((project, i) => (
-          <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-20 space-y-5 snap-center md:p-44">
+          <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 space-y-5 sm:p-20 snap-center md:p-44">
 
-            <div className="max-w-6xl px-0 space-y-10 md:px-10">
-              <h4 className="text-4xl font-semibold text-center">
+            <div className="max-w-6xl px-0 space-y-5 sm:space-y-10 md:px-10">
+              <h4 className="font-semibold text-center text-md sm:text-3xl md:text-4xl">
                 <span className="underline decoration-[#F7AB0A]/50">
                   Case Study {i+1} of {projects?.length}:
                 </span>{" "}
@@ -45,11 +45,11 @@ function Projects({ projects }: Props) {
                 viewport={{ once: true }}
                 src={urlForImage(project?.image.asset).url()}
                 alt={project.title}
-                className="w-3/5 h-auto"
+                className="w-auto h-24"
               />
             </div>
 
-              <div className="flex items-center justify-center space-x-2">
+              <div className="flex items-center justify-center space-x-1 sm:space-x-2">
                 {project?.technologies.map((technology) => (
                   <Image
                     key={i}
@@ -57,12 +57,12 @@ function Projects({ projects }: Props) {
                     alt={technology.title}
                     width={0}
                     height={0}
-                    className="w-10 h-10"
+                    className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16"
                   />
                 ))}
               </div>
 
-              <p className="text-lg text-center md:text-left">
+              <p className="text-xs text-center sm:text-lg md:text-left">
                 {project?.summary}
               </p>
             </div>

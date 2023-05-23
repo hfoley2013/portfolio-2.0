@@ -25,8 +25,8 @@ function ExperienceCard({ experience }: Props) {
       />
 
       <div className="px-0 md:px-10">
-        <h4 className="font-light text-md sm:text-4xl">{experience?.jobTitle}</h4>
-        <p className="mt-1 text-sm font-bold sm:text-2xl">{experience?.company}</p>
+        <h4 className="font-light text-md sm:text-2xl md:text-4xl">{experience?.jobTitle}</h4>
+        <p className="mt-1 text-sm font-bold sm:text-xl md:text-2xl">{experience?.company}</p>
         <div className="flex justify-center my-2 space-x-2">
           {experience?.technologies?.map((technology) => (
             <Image
@@ -35,7 +35,7 @@ function ExperienceCard({ experience }: Props) {
               height={128}
               width={128}
               alt={technology.title}
-              className="w-10 h-10 rounded-full md:w-10 md:h-10"
+              className="w-10 h-10 rounded-full md:w-16 md:h-16"
             />
           ))}
         </div>
@@ -45,7 +45,7 @@ function ExperienceCard({ experience }: Props) {
           {experience?.isCurrentlyWorkingHere ? "Present" : new Date(experience?.dateEnded).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
         </p>
 
-        <ul className='ml-5 space-y-4 overflow-y-scroll text-xs md:text-lg list-disc w-11/12 pr-5 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80'>
+        <ul className='ml-5 space-y-4 overflow-y-scroll text-xs md:text-lg list-disc h-36 sm:48 md:96 w-11/12 pr-5 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80'>
           {experience?.points.map((point, i) => (
             <li key={i}>
               {point}
