@@ -12,7 +12,7 @@ type Props = {
 function Projects({ projects }: Props) {
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
@@ -29,25 +29,25 @@ function Projects({ projects }: Props) {
             <div className="max-w-6xl px-0 space-y-5 sm:space-y-10 md:px-10">
               <h4 className="font-semibold text-center text-md sm:text-3xl md:text-4xl">
                 <span className="underline decoration-[#F7AB0A]/50">
-                  Case Study {i+1} of {projects?.length}:
+                  Case Study {i + 1} of {projects?.length}:
                 </span>{" "}
                 {project?.title}
               </h4>
-            
-            <div className='flex items-center justify-center'>
-              <motion.img 
-                initial={{
-                  y: -300,
-                  opacity: 0,
-                }}
-                transition={{ duration: 1.2 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                src={urlForImage(project?.image.asset).url()}
-                alt={project.title}
-                className="w-auto h-24"
-              />
-            </div>
+
+              <div className='flex items-center justify-center'>
+                <motion.img
+                  initial={{
+                    y: -300,
+                    opacity: 0,
+                  }}
+                  transition={{ duration: 1.2 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  src={urlForImage(project?.image.asset).url()}
+                  alt={project.title}
+                  className="w-auto h-24 max-w-[80%] sm:h-32 md:h-48 lg:h-64"
+                />
+              </div>
 
               <div className="flex items-center justify-center space-x-1 sm:space-x-2">
                 {project?.technologies.map((technology) => (
