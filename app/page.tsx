@@ -32,7 +32,7 @@ export default async function Home() {
         <About pageInfo={pageInfo} />
       </section>
       
-      <section id="experience" className="min-h-screen snap-center">
+      <section id="experience" className="min-h-screen snap-start sm:snap-center">
         <WorkExperience experiences={experiences} />
       </section>
   
