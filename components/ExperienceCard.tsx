@@ -42,10 +42,10 @@ function ExperienceCard({ experience }: Props) {
         <p className="py-5 text-gray-300 uppercase text-md sm:text-lg">
           {new Date(experience?.dateStarted).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
           {" "}—{" "}
-          {experience?.isCurrentlyWorkingHere ? "Present" : new Date(experience?.dateEnded).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
+          {experience?.isCurrentlyWorkingHere || experience?.dateEnded === undefined ? "Present" : new Date(experience?.dateEnded).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
         </p>
 
-        <ul className='ml-5 space-y-4 overflow-y-scroll text-xs md:text-lg list-disc h-36 sm:48 md:96 w-11/12 pr-5 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80'>
+        <ul className='ml-5 space-y-4 overflow-y-scroll text-xs md:text-lg list-disc h-36 sm:h-48 md:h-96 w-11/12 pr-5 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80'>
           {experience?.points.map((point, i) => (
             <li key={i}>
               {point}

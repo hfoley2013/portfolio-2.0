@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Project } from '../typings'
 import { urlForImage } from '@/sanity/lib/image'
@@ -12,7 +13,7 @@ type Props = {
 function Projects({ projects }: Props) {
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
@@ -29,25 +30,28 @@ function Projects({ projects }: Props) {
             <div className="max-w-6xl px-0 space-y-5 sm:space-y-10 md:px-10">
               <h4 className="font-semibold text-center text-md sm:text-3xl md:text-4xl">
                 <span className="underline decoration-[#F7AB0A]/50">
-                  Case Study {i+1} of {projects?.length}:
-                </span>{" "}
-                {project?.title}
+                  Case Study {i + 1} of {projects?.length}:
+                </span>
+                <br></br>
+                <p className="mt-1 sm:mt-5 sm:pt-4">{project?.title}</p>
               </h4>
-            
-            <div className='flex items-center justify-center'>
-              <motion.img 
-                initial={{
-                  y: -300,
-                  opacity: 0,
-                }}
-                transition={{ duration: 1.2 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                src={urlForImage(project?.image.asset).url()}
-                alt={project.title}
-                className="w-auto h-24"
-              />
-            </div>
+
+              <div className='flex items-center justify-center'>
+                <Link href={project.linkToBuild} target="_blank">
+                  <motion.img
+                    initial={{
+                      y: -300,
+                      opacity: 0,
+                    }}
+                    transition={{ duration: 1.2 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    src={urlForImage(project?.image.asset).url()}
+                    alt={project.title}
+                    className="w-auto h-32 max-w-[100%] sm:h-48 sm:max-w-none md:h-64 lg:h-96"
+                  />
+                </Link>
+              </div>
 
               <div className="flex items-center justify-center space-x-1 sm:space-x-2">
                 {project?.technologies.map((technology) => (
