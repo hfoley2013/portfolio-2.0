@@ -23,7 +23,7 @@ function Projects({ projects }: Props) {
         Projects
       </h3>
 
-      <div className="relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 max-h-[75%] md:overflow-y-scroll">
+      <div className="relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 md:max-h-[70%] md:overflow-y-scroll">
         {projects?.map((project, i) => (
           <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 space-y-5 sm:p-20 snap-center md:p-44">
 
