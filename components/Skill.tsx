@@ -19,9 +19,9 @@ function Skill({ directionLeft, skill }: Props) {
         transition={{ duration: 1}}
         whileInView={{ opacity: 1, x: 0 }}
         src={urlForImage(skill?.image.asset).url()}
-        className="object-cover w-12 h-12 transition duration-300 ease-in-out border border-gray-500 rounded-full sm:w-24 sm:h-24 xl:w-32 xl:h-32 filter group-hover:grayscale"
+        className="object-cover w-12 h-12 transition duration-300 ease-in-out border border-gray-500 rounded-full sm:w-16 sm:h-16 2xl:w-32 2xl:h-32 filter group-hover:grayscale"
       />
-      <div className="absolute z-0 w-12 h-12 transition duration-300 ease-in-out rounded-full opacity-0 sm:w-24 sm:h-24 group-hover:opacity-80 group-hover:bg-white md:w-28 md:h-28 xl:w-32 xl:h-32">
+      <div className="absolute z-0 w-12 h-12 transition duration-300 ease-in-out rounded-full opacity-0 sm:w-16 sm:h-16 group-hover:opacity-80 group-hover:bg-white 2xl:w-32 2xl:h-32">
         <div className="flex items-center justify-center h-full">
           <p className="text-xl font-bold text-black opacity-100 sm:text-3xl">{skill.progress}%</p>
         </div>
