@@ -19,21 +19,20 @@ function Projects({ projects }: Props) {
       transition={{ duration: 1.5 }}
       className="relative z-0 flex flex-col items-center h-screen max-w-full mx-auto overflow-hidden text-left md:flex-row justify-evenly"
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
 
-      <div className="relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+      <div className="relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 md:max-h-[70%] md:overflow-y-scroll">
         {projects?.map((project, i) => (
           <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 space-y-5 sm:p-20 snap-center md:p-44">
 
-            <div className="max-w-6xl px-0 space-y-5 sm:space-y-10 md:px-10">
-              <h4 className="font-semibold text-center text-md sm:text-3xl md:text-4xl">
+            <div className="max-w-6xl px-0 space-y-5 md:px-10">
+              <h4 className="font-semibold text-center text-md sm:text-xl md:text-2xl 2xl:text-3xl">
                 <span className="underline decoration-[#F7AB0A]/50">
                   Case Study {i + 1} of {projects?.length}:
                 </span>
-                <br></br>
-                <p className="mt-1 sm:mt-5 sm:pt-4">{project?.title}</p>
+                <p>{project?.title}</p>
               </h4>
 
               <div className='flex items-center justify-center'>
@@ -48,7 +47,7 @@ function Projects({ projects }: Props) {
                     viewport={{ once: true }}
                     src={urlForImage(project?.image.asset).url()}
                     alt={project.title}
-                    className="w-auto h-32 max-w-[100%] sm:h-48 sm:max-w-none md:h-64 lg:h-96"
+                    className="w-auto h-32 max-w-[100%] sm:h-48 sm:max-w-none md:h-64 2xl:h-96"
                   />
                 </Link>
               </div>

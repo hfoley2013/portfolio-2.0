@@ -15,7 +15,7 @@ function About({ pageInfo }: Props) {
       transition={{ duration: 1.5 }}
       className="relative flex flex-col items-center h-screen px-10 mx-auto text-center md:flex-row max-w-7xl justify-evenly"
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl w-full">
+      <h3 className="absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl w-full">
         About
       </h3>
       <div className="flex flex-col sm:flex-row md:item-center">
@@ -33,7 +33,7 @@ function About({ pageInfo }: Props) {
           }}
           viewport={{ once: true }}
           src="/headshot.jpg"
-          className="object-cover hidden mb-8 rounded-full sm:inline-flex md:mb-0 md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]"
+          className="hidden object-cover mb-8 rounded-full sm:inline-flex md:mb-0 md:rounded-lg md:w-64 md:h-96 xl:w-1/2 xl:h-auto"
         />
 
         <div className="flex flex-col space-y-5 md:ml-8">
@@ -42,7 +42,7 @@ function About({ pageInfo }: Props) {
             <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
             background
           </h4>
-          <p className="text-[10px] text-left sm:text-base">
+          <p className="text-xs text-left sm:text-base">
             {pageInfo?.backgroundInformation}
           </p>
         </div>
