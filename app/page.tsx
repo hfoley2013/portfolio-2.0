@@ -21,21 +21,21 @@ export default async function Home() {
   const socials = await fetchSocials();
 
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
       <Header socials={socials} />
 
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
-      
+
       <section id="about" className="snap-center">
         <About pageInfo={pageInfo} />
       </section>
-      
+
       <section id="experience" className="snap-center">
         <WorkExperience experiences={experiences} />
       </section>
-  
+
       <section id="skills" className="snap-start">
         <Skills skills={skills} />
       </section>
@@ -51,7 +51,7 @@ export default async function Home() {
       <Link href="/#hero" scroll={false}>
         <footer className="sticky w-full cursor-pointer bottom-5">
           <div className="flex items-center justify-center">
-            <Image 
+            <Image
               src="/RainierRanch.png"
               alt="Footer Logo"
               height={128}
