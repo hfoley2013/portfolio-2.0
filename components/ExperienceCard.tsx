@@ -13,7 +13,7 @@ function ExperienceCard({ experience }: Props) {
     <article className="flex flex-col items-center flex-shrink-0 rounded-lg space-y-1 sm:space-y-2 md:space-y-7 w-full md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-2 sm:p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
       <motion.img
         initial={{
-          y: -100,
+          y: -50,
           opacity: 0
         }}
         transition={{ duration: 1.2 }}
@@ -27,7 +27,7 @@ function ExperienceCard({ experience }: Props) {
       <div className="px-0 md:px-10">
         <h4 className="text-base font-light sm:text-xl md:text-3xl lg:text-4xl">{experience?.jobTitle}</h4>
         <p className="mt-1 text-sm font-bold sm:text-base md:text-2xl lg:text-3xl">{experience?.company}</p>
-        <div className="flex my-2 space-x-2 justify-evenly">
+        <div className="flex my-1 space-x-2 sm:my-2 justify-evenly">
           {experience?.technologies?.map((technology) => (
             <Image
               key={technology._id}
@@ -35,7 +35,7 @@ function ExperienceCard({ experience }: Props) {
               height={128}
               width={128}
               alt={technology.title}
-              className="w-10 h-10 mt-1 rounded-full sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
+              className="w-10 h-10 rounded-full sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
             />
           ))}
         </div>
@@ -45,7 +45,7 @@ function ExperienceCard({ experience }: Props) {
           {experience?.isCurrentlyWorkingHere ? "Present" : new Date(experience?.dateEnded).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
         </p>
 
-        <ul className='w-4/5 pr-5 ml-5 space-y-1 sm:space-y-2 md:space-y-4 text-[10px] list-disc sm:text-xs md:text-base lg:text-lg h-44 sm:h-64'>
+        <ul className='w-4/5 pr-5 ml-5 space-y-1 sm:space-y-2 md:space-y-4 text-[10px] list-disc sm:text-xs md:text-base lg:text-lg h-48 sm:h-64 md:h-96'>
           {experience?.points.map((point, i) => (
             <li key={i}>
               {point}
