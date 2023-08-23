@@ -35,7 +35,7 @@ function Projects({ projects }: Props) {
               viewport={{ once: true }}
               src={urlForImage(project?.image.asset).url()}
               alt={project.title}
-              className="fill"
+              className="max-h-[600px]"
             />
 
             <div className="max-w-6xl px-0 space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-10 md:px-10">

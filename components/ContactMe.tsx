@@ -23,7 +23,7 @@ function ContactMe({ pageInfo }: Props) {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:harper@rainierdigitalsolutions.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
+    window.location.href = `mailto:${pageInfo?.email}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
   };
 
   return (
@@ -32,40 +32,42 @@ function ContactMe({ pageInfo }: Props) {
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-10">
-        <h4 className="text-4xl font-semibold text-center">
+      <div className="flex flex-col space-y-1 sm:space-y-2 md:space-y-4 lg:space-y-10">
+        <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-4xl">
           Got a project in mind?{" "}
           <span className="decoration-[#F7AB0A]/50 underline">
-            Let&apos;s Talk.
+            <a href={`mailto:${pageInfo?.email}`}>
+              Let&apos;s Talk.
+            </a>
           </span>
         </h4>
 
-        <div className="space-y-10">
+        <div className="space-y-1 sm:space-y-2 md:space-y-4 lg:space-y-10">
+          <a href={`tel:${pageInfo?.phoneNumber}`} className="flex items-center justify-center space-x-5">
+            <PhoneIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.phoneNumber}</p>
+          </a>
+          <a href={`mailto:${pageInfo?.email}`} className="flex items-center justify-center space-x-5">
+            <EnvelopeIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
+            <p className="sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.email}</p>
+          </a>
           <div className="flex items-center justify-center space-x-5">
-            <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo?.phoneNumber}</p>
-          </div>
-          <div className="flex items-center justify-center space-x-5">
-            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo?.email}</p>
-          </div>
-          <div className="flex items-center justify-center space-x-5">
-            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo?.address}</p>
+            <MapPinIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
+            <p className="sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.address}</p>
           </div>
         </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col mx-auto space-y-2 w-fit"
+          className="flex flex-col mx-auto space-y-2 max-w-[350px] sm:max-w-[500px] md:max-w-none pt-5"
         >
           <div className="flex space-x-2">
-            <input {...register('name')} placeholder="Name" className="contactInput" type="text" />
-            <input  {...register('email')} placeholder="Email" className="contactInput" type="email" />
+            <input {...register('name')} placeholder="Name" className="contactInput max-w-[49%] sm:max-w-none" type="text" />
+            <input  {...register('email')} placeholder="Email" className="contactInput max-w-[49%] sm:max-w-none" type="email" />
           </div>
           <input  {...register('subject')} placeholder="Subject" className="contactInput" type="text" />
 
-          <textarea {...register('message')} placeholder="Message" className="contactInput"></textarea>
+          <textarea {...register('message')} placeholder="Message" className="h-28 contactInput"></textarea>
           <button
             type="submit"
             className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"
