@@ -3,7 +3,10 @@ import React from 'react'
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { PageInfo } from '@/typings'
-
+import { useToast } from '@/components/ui/use-toast'
+import { ToastAction } from '@/components/ui/toast'
+import sendEmail from '@/email.js/sendEmail'
+import { ConfigResolutionError } from 'sanity'
 
 type Props = {
   pageInfo?: PageInfo
@@ -20,10 +23,41 @@ function ContactMe({ pageInfo }: Props) {
   const {
     register,
     handleSubmit,
+    reset,
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:${pageInfo?.email}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
+  const { toast } = useToast();
+
+  const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+
+    const templateParams: Inputs = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    }
+
+    const response = await sendEmail(templateParams);
+
+    if (response != 'OK') {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your request.",
+        action: <ToastAction altText="Try again" onSubmit={handleSubmit(onSubmit)}> Try again</ ToastAction >,
+      });
+    } else {
+      toast({
+        title: `Thank you ${formData.name}!`,
+        description: (
+          <div className="flex flex-wrap p-4 mt-2 rounded-md bg-slate-950">
+            <code className="font-bold text-white">I have received your message and will be with you soon.</code>
+          </div>),
+      });
+
+      reset();
+    }
+
   };
 
   return (
@@ -67,7 +101,7 @@ function ContactMe({ pageInfo }: Props) {
           </div>
           <input  {...register('subject')} placeholder="Subject" className="contactInput" type="text" />
 
-          <textarea {...register('message')} placeholder="Message" className="h-28 contactInput"></textarea>
+          <textarea {...register('message')} placeholder="Message" className="h-28 sm:h-36 md:h-48 lg:h-52 contactInput"></textarea>
           <button
             type="submit"
             className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"

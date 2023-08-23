@@ -51,11 +51,11 @@ export default async function Home() {
         <footer className="sticky w-full cursor-pointer bottom-5">
           <div className="flex items-center justify-center">
             <Image
-              src="/RainierRanch.png"
+              src="/home.png"
               alt="Footer Logo"
               height={128}
               width={128}
-              className="w-10 h-10 rounded-full cursor-pointer filter grayscale hover:grayscale-0"
+              className="w-5 h-5 cursor-pointer sm:w-8 sm:h-8 filter grayscale hover:grayscale-0"
             />
           </div>
         </footer>

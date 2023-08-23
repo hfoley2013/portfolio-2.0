@@ -2,6 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { PageInfo } from '@/typings'
+import { urlForImage } from '@/sanity/lib/image'
 
 type Props = {
   pageInfo?: PageInfo
@@ -32,7 +33,7 @@ function About({ pageInfo }: Props) {
           opacity: 1,
         }}
         viewport={{ once: true }}
-        src="/headshot.jpg"
+        src={pageInfo ? urlForImage(pageInfo.heroImage.asset).url() : ''}
         className="flex-shrink-0 object-cover sm:block hidden rounded-full md:mb-0 md:rounded-lg md:w-60 md:h-72 xl:w-[500px] xl:h-[600px]"
       />
 
