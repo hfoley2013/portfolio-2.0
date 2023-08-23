@@ -1,9 +1,8 @@
 'use client';
 import React from 'react';
-import {Cursor, useTypewriter} from 'react-simple-typewriter';
+import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import BackgroundCircles from './BackgroundCircles';
 import Image from 'next/image';
-import Link from 'next/link';
 import { PageInfo } from '@/typings';
 import { urlForImage } from '@/sanity/lib/image';
 
@@ -15,37 +14,39 @@ export default function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
     words: [
       `Hi, my name is ${pageInfo?.name}.`,
-      "Bombs => Banking => Backend",
       "Full Stack Dev",
+      "Rainier Digital Solutions",
     ],
     loop: true,
     delaySpeed: 2000,
   });
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen space-y-8 overflow-hidden text-center">
+    <div className="relative flex items-center justify-center w-screen h-screen overflow-hidden text-center">
       <BackgroundCircles />
-      <Image
-        src={pageInfo? urlForImage(pageInfo.heroImage.asset).url() : ''}
-        alt={`Profile Image of ${pageInfo?.name}`}
-        width={256}
-        height={256}
-        className="relative object-cover w-32 h-32 mx-auto rounded-full"
-        priority
-      />
-      <div className="z-20">
-        <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">{pageInfo?.role}</h2>
-        <h1 className="px-10 text-5xl font-semibold lg:text-6xl">
-          <span className="mr-3">{text}</span>
-          <Cursor cursorColor="#F7AB0A" />
-        </h1>
+      <div className='z-[2]'>
+        <Image
+          src={pageInfo ? urlForImage(pageInfo.heroImage.asset).url() : ''}
+          alt={`Profile Image of ${pageInfo?.name}`}
+          width={300}
+          height={300}
+          className="relative z-20 object-cover mx-auto rounded-full w-44 h-44 sm:w-72 sm:h-72 lg:h-96 lg:w-96"
+          priority
+        />
+        <div className="z-20 mt-2 sm:mt-5">
+          <h2 className="text-xs tracking-[10px] sm:text-sm md:text-lg uppercase text-gray-500 pb-2 sm:tracking-[15px]">{pageInfo?.role}</h2>
+          <h1 className="px-10 text-xl font-semibold sm:text-3xl lg:text-6xl">
+            <span className="mr-3">{text}</span>
+            <Cursor cursorColor="#F7AB0A" />
+          </h1>
 
-        <div className="pt-5">
-          <Link href="/#about" scroll={false} className="heroButton">About</Link>
-          <Link href="/#experience" scroll={false} className="heroButton">Experience</Link>
-          <Link href="/#skills" scroll={false} className="heroButton">Skills</Link>
-          <Link href="/#projects" scroll={false} className="heroButton">Projects</Link>
-          {/* <Link href="#resume" scroll={false} className="heroButton">Resume</Link> */}
+          <div className="grid w-screen grid-cols-2 mt-2 sm:block sm:mt-5">
+            <a href="/#about" className="heroButton">About</a>
+            <a href="/#experience" className="heroButton">Experience</a>
+            <a href="/#skills" className="heroButton">Skills</a>
+            <a href="/#projects" className="heroButton">Projects</a>
+            {/* <a href="#resume" className="heroButton">Resume</a> */}
+          </div>
         </div>
       </div>
     </div>

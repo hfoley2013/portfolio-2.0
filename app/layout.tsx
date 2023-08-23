@@ -8,6 +8,8 @@ export const metadata = {
   description: 'Personal portfolio and blog for Full Stack Developer Harper Foley.',
 }
 
+export const dynamic = 'force-dynamic';
+
 export default function RootLayout({
   children,
 }: {
