@@ -52,6 +52,7 @@ export interface Project extends SanityBody {
   linkToBuild: string;
   summary: string;
   technologies: Technology[];
+  order: number;
 }
 
 export interface Experience extends SanityBody {
