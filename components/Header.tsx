@@ -2,12 +2,16 @@
 import { SocialIcon } from 'react-social-icons'
 import { motion } from 'framer-motion'
 import { Social } from '../typings'
+import Link from 'next/link'
+import Image from 'next/image'
+import useIsMobileDeviceView from '@/hooks/useIsMobileDeviceView'
 
 type Props = {
   socials?: Social[];
 }
 
 export default function Header({ socials }: Props) {
+  const isMobile = useIsMobileDeviceView();
 
   return (
     <>
@@ -27,6 +31,14 @@ export default function Header({ socials }: Props) {
             duration: 1.5
           }}
           className="flex flex-row items-center">
+          <Link href="https://rainierdigitalsolutions.com" target='_blank'>
+            <Image
+              src={isMobile ? "/rds-logo.svg" : "/rds-full-logo.svg"}
+              alt='Rainier Digital Solutions Logo'
+              fill
+              className='p-3 sm:p-0 hover:opacity-50'
+            />
+          </Link>
           {socials?.map((social) => (
             <SocialIcon
               key={social._id}
