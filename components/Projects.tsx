@@ -1,9 +1,9 @@
 'use client'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Project } from '../typings'
 import { urlForImage } from '@/sanity/lib/image'
-import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { DoubleArrowRightIcon } from "@radix-ui/react-icons"
 import { DoubleArrowLeftIcon } from "@radix-ui/react-icons"
@@ -13,7 +13,25 @@ type Props = {
 }
 
 function Projects({ projects }: Props) {
-  const isMobileDevice: boolean = window ? window.innerWidth <= 768 : false;
+
+  const [isMobileDevice, setIsMobileDevice] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkWindowSize = () => {
+      setIsMobileDevice(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    checkWindowSize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkWindowSize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', checkWindowSize);
+    };
+  }, []);
 
   const goToPreviousProject = () => {
     if (projects) {
