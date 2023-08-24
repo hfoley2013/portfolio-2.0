@@ -1,15 +1,7 @@
 import { MetadataRoute } from 'next'
-import { fetchSocials } from '../utils/fetchSocials'
-import { Social } from '../typings'
 
-const socialPromise: Promise<Social[] | undefined> = fetchSocials();
-
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://harperfoley.com"
-
-    const socials = await socialPromise;
-
-    const resolvedSocials = socials ? socials : [];
 
     return [
         {
@@ -48,9 +40,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url: `${baseUrl}/#experience`,
             lastModified: new Date(),
         },
-        ...resolvedSocials.map(social => ({
-            url: social.url,
-            lastModified: new Date(),
-        })),
     ]
 }
