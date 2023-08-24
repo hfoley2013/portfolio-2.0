@@ -6,7 +6,6 @@ import { PageInfo } from '@/typings'
 import { useToast } from '@/components/ui/use-toast'
 import { ToastAction } from '@/components/ui/toast'
 import sendEmail from '@/email.js/sendEmail'
-import { ConfigResolutionError } from 'sanity'
 
 type Props = {
   pageInfo?: PageInfo
@@ -71,7 +70,7 @@ function ContactMe({ pageInfo }: Props) {
         <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-4xl">
           Got a project in mind?{" "}
           <span className="decoration-[#F7AB0A]/50 underline">
-            <a href={`mailto:${pageInfo?.email}`}>
+            <a href={`mailto:${pageInfo?.email}`} className='hover:opacity-50'>
               Let&apos;s Talk.
             </a>
           </span>
@@ -79,11 +78,11 @@ function ContactMe({ pageInfo }: Props) {
 
 
         <div className="space-y-1 sm:space-y-2 md:space-y-4 lg:space-y-10">
-          <a href={`tel:${pageInfo?.phoneNumber}`} className="flex items-center justify-center space-x-5">
+          <a href={`tel:${pageInfo?.phoneNumber}`} className="flex items-center justify-center space-x-5 hover:opacity-50">
             <PhoneIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.phoneNumber}</p>
           </a>
-          <a href={`mailto:${pageInfo?.email}`} className="flex items-center justify-center space-x-5">
+          <a href={`mailto:${pageInfo?.email}`} className="flex items-center justify-center space-x-5 hover:opacity-50">
             <EnvelopeIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
             <p className="sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.email}</p>
           </a>

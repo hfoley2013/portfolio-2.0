@@ -34,11 +34,12 @@ export default function Header({ socials }: Props) {
               url={social.url}
               fgColor='gray'
               bgColor='transparent'
+              className='hover:opacity-50'
             />
           ))}
         </motion.div>
 
-        <a href="/#contact">
+        <a href="/#contact" className='hover:opacity-50'>
           <motion.div
             initial={{
               x: 500,
