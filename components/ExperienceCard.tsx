@@ -5,7 +5,7 @@ import { Experience } from '@/typings'
 import { urlForImage } from '@/sanity/lib/image'
 
 type Props = {
-  experience?: Experience
+  experience?: Experience,
 }
 
 function ExperienceCard({ experience }: Props) {
