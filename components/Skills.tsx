@@ -8,6 +8,8 @@ type Props = {
 }
 
 function Skills({ skills }: Props) {
+  const sortedSkills = skills ? skills.sort((a, b) => a.title.localeCompare(b.title)) : [];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,16 +25,16 @@ function Skills({ skills }: Props) {
         Hover over a skill for current proficiency
       </h3>
 
-      <div className="max-h-[320px] md:max-h-none md:pt-8">
+      <div className="max-h-[320px] md:max-h-none">
         <div className="grid grid-cols-4 gap-4 sm:gap-4 md:gap-5">
-          {skills?.slice(0, skills.length / 2).map((skill) => (
+          {sortedSkills.slice(0, sortedSkills.length / 2).map((skill) => (
             <Skill
               key={skill._id}
               skill={skill}
             />
           ))}
 
-          {skills?.slice(skills.length / 2, skills.length).map((skill) => (
+          {sortedSkills.slice(sortedSkills.length / 2, sortedSkills.length).map((skill) => (
             <Skill
               key={skill._id}
               skill={skill}

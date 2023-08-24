@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Project } from '../typings'
@@ -7,6 +7,7 @@ import { urlForImage } from '@/sanity/lib/image'
 import { Button } from "@/components/ui/button"
 import { DoubleArrowRightIcon } from "@radix-ui/react-icons"
 import { DoubleArrowLeftIcon } from "@radix-ui/react-icons"
+import useIsMobileDeviceView from '@/hooks/useIsMobileDeviceView'
 
 type Props = {
   projects?: Project[]
@@ -14,24 +15,7 @@ type Props = {
 
 function Projects({ projects }: Props) {
 
-  const [isMobileDevice, setIsMobileDevice] = useState<boolean>(false);
-
-  useEffect(() => {
-    const checkWindowSize = () => {
-      setIsMobileDevice(window.innerWidth <= 768);
-    };
-
-    // Initial check
-    checkWindowSize();
-
-    // Add event listener for window resize
-    window.addEventListener('resize', checkWindowSize);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('resize', checkWindowSize);
-    };
-  }, []);
+  const isMobileDevice = useIsMobileDeviceView();
 
   const goToPreviousProject = () => {
     if (projects) {
@@ -44,18 +28,17 @@ function Projects({ projects }: Props) {
       setCurrentProjectIndex((prevIndex) => (prevIndex === projects.length - 1 ? 0 : prevIndex + 1));
     }
   };
+  const sortedProjects = projects ? projects.sort((a, b) => a.order - b.order) : [];
 
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
-  const currentProject = projects?.[currentProjectIndex];
-
-
+  const currentProject = sortedProjects[currentProjectIndex];
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="relative z-0 flex flex-col items-center h-screen max-w-full mx-auto overflow-hidden text-left md:flex-row justify-evenly"
+      className="relative z-0 flex flex-col items-center w-screen h-screen max-w-full mx-auto overflow-hidden text-left md:flex-row justify-evenly"
     >
       <h3 className="sectionHeader">
         Projects
@@ -63,7 +46,7 @@ function Projects({ projects }: Props) {
 
       <div className={`relative z-20 flex w-full snap-x snap-mandatory ${isMobileDevice ? 'scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 overflow-x-scroll overflow-y-hidden' : ''}`}>
         {isMobileDevice ? (
-          projects?.map((project, i) => (
+          sortedProjects.map((project, i) => (
             <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 mt-8 space-y-5 sm:mt-5 md:mt-3 lg:mt-auto sm:p-5 snap-center md:p-20 lg:p-44">
               <motion.img
                 initial={{
@@ -73,7 +56,7 @@ function Projects({ projects }: Props) {
                 transition={{ duration: 1.2 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                src={urlForImage(project?.image.asset).url()}
+                src={urlForImage(project.image.asset).url()}
                 loading='lazy'
                 alt={project.title}
                 className="md:max-h-[600px]"
@@ -82,13 +65,13 @@ function Projects({ projects }: Props) {
               <div className="max-w-6xl px-0 space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-10 md:px-10">
                 <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-4xl">
                   <span className="underline decoration-[#F7AB0A]/50">
-                    Case Study {i + 1} of {projects?.length}:
+                    Case Study {i + 1} of {sortedProjects.length}:
                   </span>{" "}
-                  {project?.title}
+                  {project.title}
                 </h4>
 
                 <div className="flex items-center justify-center space-x-2">
-                  {project?.technologies.map((technology, i) => (
+                  {project.technologies.map((technology, i) => (
                     <Image
                       key={`${i}-${technology}`}
                       src={urlForImage(technology.image.asset).url()}
@@ -102,14 +85,14 @@ function Projects({ projects }: Props) {
                 </div>
 
                 <p className="text-sm text-left sm:text-base md:text-lg">
-                  {project?.summary}
+                  {project.summary}
                 </p>
               </div>
             </div>
           ))) :
           (currentProject && (
             <>
-              <div key={currentProject?._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 space-y-5 sm:p-5 snap-center md:p-20 lg:p-44">
+              <div key={currentProject._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 space-y-5 sm:p-5 snap-center md:p-20 lg:p-44">
                 <motion.img
                   initial={{
                     y: -300,
@@ -120,19 +103,19 @@ function Projects({ projects }: Props) {
                   viewport={{ once: true }}
                   src={urlForImage(currentProject.image.asset).url()}
                   alt={currentProject.title}
-                  className="max-h-[600px]"
+                  className="md:max-h-[300px]"
                 />
 
                 <div className="max-w-6xl px-0 space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-10 md:px-10">
-                  <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-4xl">
+                  <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-3xl">
                     <span className="underline decoration-[#F7AB0A]/50">
-                      Case Study {currentProjectIndex + 1} of {projects?.length}:
+                      Case Study {currentProjectIndex + 1} of {sortedProjects.length}:
                     </span>{" "}
                     {currentProject.title}
                   </h4>
 
                   <div className="flex items-center justify-center space-x-2">
-                    {currentProject?.technologies.map((technology, i) => (
+                    {currentProject.technologies.map((technology, i) => (
                       <Image
                         key={`${technology}-${i}`}
                         src={urlForImage(technology.image.asset).url()}
