@@ -11,6 +11,6 @@ const query = groq`
 `;
 
 export async function GET() {
-  const experiences: Experience[] = await client.fetch(query);
+  const experiences: Experience[] = await client.fetch(query, { next: { revalidate: 60 } });
   return NextResponse.json({ experiences });
 }

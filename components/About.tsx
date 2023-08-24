@@ -14,7 +14,7 @@ function About({ pageInfo }: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="relative flex flex-col items-center h-screen px-10 mx-auto text-center md:text-left md:flex-row max-w-7xl justify-evenly"
+      className="relative flex flex-col items-center h-screen px-10 mx-auto text-center md:flex-row max-w-7xl justify-evenly"
     >
       <h3 className="sectionHeader">
         About
@@ -46,6 +46,7 @@ function About({ pageInfo }: Props) {
         <p className="text-base lg:text-xl">
           {pageInfo?.backgroundInformation}
         </p>
+
       </div>
     </motion.div>
   )

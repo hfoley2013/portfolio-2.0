@@ -62,6 +62,7 @@ function ContactMe({ pageInfo }: Props) {
 
   return (
     <div className="relative flex flex-col items-center h-screen px-10 mx-auto text-center md:text-left md:flex-row max-w-7xl justify-evenly">
+
       <h3 className="sectionHeader">
         Contact
       </h3>
@@ -76,6 +77,7 @@ function ContactMe({ pageInfo }: Props) {
           </span>
         </h4>
 
+
         <div className="space-y-1 sm:space-y-2 md:space-y-4 lg:space-y-10">
           <a href={`tel:${pageInfo?.phoneNumber}`} className="flex items-center justify-center space-x-5">
             <PhoneIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
@@ -85,6 +87,7 @@ function ContactMe({ pageInfo }: Props) {
             <EnvelopeIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
             <p className="sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.email}</p>
           </a>
+
           <div className="flex items-center justify-center space-x-5">
             <MapPinIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
             <p className="sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.address}</p>

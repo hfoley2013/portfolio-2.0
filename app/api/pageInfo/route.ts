@@ -8,6 +8,6 @@ const query = groq`
 `
 
 export async function GET() {
-  const pageInfo: PageInfo = await client.fetch(query);
+  const pageInfo: PageInfo = await client.fetch(query, { next: { revalidate: 60 } });
   return NextResponse.json({ pageInfo });
 }

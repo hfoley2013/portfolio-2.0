@@ -15,7 +15,7 @@ function Experience({ experiences }: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="relative flex flex-col items-center h-screen max-w-full px-10 mx-auto overflow-hidden text-left md:flex-row justify-evenly"
+      className="relative flex flex-col items-center h-screen max-w-full px-1 mx-auto overflow-hidden text-left sm:px-10 md:flex-row justify-evenly"
     >
       <h3 className="sectionHeader">
         Experience
@@ -27,7 +27,6 @@ function Experience({ experiences }: Props) {
             key={experience._id}
             experience={experience}
           />
-
         ))}
       </div>
     </motion.div>
