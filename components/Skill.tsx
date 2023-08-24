@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { Skill as SkillType } from '../typings'
 import { urlForImage } from '@/sanity/lib/image';

@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 import { motion } from 'framer-motion'
 import { PageInfo } from '@/typings'
 import { urlForImage } from '@/sanity/lib/image'

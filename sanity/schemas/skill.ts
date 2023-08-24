@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'skill',
@@ -27,4 +27,13 @@ export default defineType({
       }
     }),
   ],
+  orderings: [
+    {
+      title: "Progress",
+      name: "progressDesc",
+      by: [
+        { field: "progress", direction: "desc" },
+      ]
+    }
+  ]
 })

@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'projects',
@@ -34,6 +34,20 @@ export default defineType({
       name: "linkToBuild",
       title: "LinkToBuild",
       type: "url",
+    }),
+    defineField({
+      name: "order",
+      title: "Order",
+      type: "number",
     })
   ],
+  orderings: [
+    {
+      title: "Custom Sort Order",
+      name: "customSortOrder",
+      by: [
+        { field: "order", direction: "asc" },
+      ]
+    }
+  ]
 })
