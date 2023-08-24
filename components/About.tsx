@@ -38,12 +38,12 @@ function About({ pageInfo }: Props) {
       />
 
       <div className="px-0 pt-5 mt-5 space-y-10 sm:mt-2 sm:pt-2 md:pt-0 md:mt-0 md:px-10">
-        <h4 className="text-xl font-semibold sm:text-xl md:text-2xl lg:text-4xl">
+        <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl lg:text-4xl">
           Here is a{" "}
           <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
           background
         </h4>
-        <p className="text-base text-left lg:text-xl">
+        <p className="text-base text-left md:text-lg lg:text-xl">
           {pageInfo?.backgroundInformation}
         </p>
 

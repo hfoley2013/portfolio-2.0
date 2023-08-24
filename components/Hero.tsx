@@ -29,13 +29,13 @@ export default function Hero({ pageInfo }: Props) {
           alt={`Profile Image of ${pageInfo?.name}`}
           width={300}
           height={300}
-          className="relative z-20 object-cover mx-auto rounded-full w-44 h-44 sm:w-72 sm:h-72 lg:h-96 lg:w-96"
+          className="relative z-20 object-cover mx-auto rounded-full w-44 h-44 sm:w-48 sm:h-48 lg:h-52 lg:w-52 xl:w-60 xl:h-60"
           priority
         />
         <div className="z-20 mt-2 sm:mt-5">
           <h2 className="text-xs tracking-[10px] sm:text-sm md:text-lg uppercase text-gray-500 pb-2 sm:tracking-[15px]">{pageInfo?.role}</h2>
-          <h1 className="px-10 text-xl font-semibold sm:text-3xl lg:text-6xl">
-            <span className="mr-3">{text}</span>
+          <h1 className="px-10 text-xl font-semibold sm:text-2xl lg:text-4xl">
+            <span className="mr-2">{text}</span>
             <Cursor cursorColor="#F7AB0A" />
           </h1>
 
