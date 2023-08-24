@@ -23,7 +23,7 @@ export default async function Home() {
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
       <Header socials={socials} />
 
-      <section id="hero" className="min-h-screen snap-start">
+      <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
 
@@ -41,11 +41,11 @@ export default async function Home() {
         <Skills skills={skills} />
       </section>
 
-      <section id="projects" className="min-h-screen snap-start">
+      <section id="projects" className="snap-start">
         <Projects projects={projects} />
       </section>
 
-      <section id="contact" className="min-h-screen scale-x-50 scale-y-75 sm:scale-x-100 sm:scale-y-100 snap-start">
+      <section id="contact" className="snap-start">
         <ContactMe pageInfo={pageInfo} />
       </section>
 
@@ -57,7 +57,7 @@ export default async function Home() {
               alt="Footer Logo"
               height={128}
               width={128}
-              className="w-5 h-5 cursor-pointer sm:w-8 sm:h-8 filter grayscale hover:grayscale-0"
+              className="w-5 h-5 cursor-pointer sm:w-6 sm:h-6 lg:h-8 lg:w-8 filter grayscale hover:grayscale-0"
             />
           </div>
         </footer>
