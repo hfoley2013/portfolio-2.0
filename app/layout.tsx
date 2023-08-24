@@ -56,8 +56,8 @@ export const metadata = {
       width: 350,
       height: 320,
       alt: 'Harper Foley',
-    }
-  }
+    },
+  },
 }
 
 export const revalidate = 3600 // revalidate at most every hour
