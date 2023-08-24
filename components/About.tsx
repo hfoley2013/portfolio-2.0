@@ -34,7 +34,7 @@ function About({ pageInfo }: Props) {
         viewport={{ once: true }}
         src={pageInfo ? urlForImage(pageInfo.heroImage.asset).url() : ''}
         loading='lazy'
-        className="flex-shrink-0 object-cover sm:block hidden rounded-full md:mb-0 md:rounded-lg md:w-60 md:h-72 xl:w-[500px] xl:h-[600px]"
+        className="flex-shrink-0 hidden object-cover rounded-full sm:block md:mb-0 md:rounded-lg md:w-60 md:h-72 lg:w-[300px] lg:h-[360px] 2xl:w-[500px] 2xl:h-[600px]"
       />
 
       <div className="px-0 pt-5 mt-5 space-y-10 sm:mt-2 sm:pt-2 md:pt-0 md:mt-0 md:px-10">

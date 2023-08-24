@@ -50,14 +50,14 @@ export default async function Home() {
       </section>
 
       <a href="/#hero">
-        <footer className="sticky w-full cursor-pointer bottom-5">
+        <footer className="sticky w-full cursor-pointer bottom-2 sm:bottom-3 md:bottom-4 lg:bottom-5">
           <div className="flex items-center justify-center">
             <Image
               src="/home.png"
               alt="Footer Logo"
               height={128}
               width={128}
-              className="w-5 h-5 cursor-pointer sm:w-6 sm:h-6 lg:h-8 lg:w-8 filter grayscale hover:grayscale-0 hover:opacity-40"
+              className="w-5 h-5 cursor-pointer sm:w-6 sm:h-6 filter grayscale hover:grayscale-0 hover:opacity-40"
             />
           </div>
         </footer>
