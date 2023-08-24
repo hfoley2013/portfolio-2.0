@@ -35,7 +35,7 @@ function ExperienceCard({ experience }: Props) {
               height={128}
               width={128}
               alt={technology.title}
-
+              loading='lazy'
               className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
             />
           ))}

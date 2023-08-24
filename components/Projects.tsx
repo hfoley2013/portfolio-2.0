@@ -13,7 +13,7 @@ type Props = {
 }
 
 function Projects({ projects }: Props) {
-  const isMobileDevice: boolean = window.innerWidth <= 768
+  const isMobileDevice: boolean = window ? window.innerWidth <= 768 : false;
 
   const goToPreviousProject = () => {
     if (projects) {
@@ -56,6 +56,7 @@ function Projects({ projects }: Props) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 src={urlForImage(project?.image.asset).url()}
+                loading='lazy'
                 alt={project.title}
                 className="md:max-h-[600px]"
               />
@@ -69,13 +70,14 @@ function Projects({ projects }: Props) {
                 </h4>
 
                 <div className="flex items-center justify-center space-x-2">
-                  {project?.technologies.map((technology) => (
+                  {project?.technologies.map((technology, i) => (
                     <Image
-                      key={i}
+                      key={`${i}-${technology}`}
                       src={urlForImage(technology.image.asset).url()}
                       alt={technology.title}
                       width={250}
                       height={250}
+                      loading='lazy'
                       className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
                     />
                   ))}
@@ -124,7 +126,7 @@ function Projects({ projects }: Props) {
                     ))}
                   </div>
 
-                  <p className="text-sm text-left sm:text-base md:text-lg">
+                  <p className="text-sm text-left sm:text-base md:text-lg lg:text-xl">
                     {currentProject.summary}
                   </p>
                 </div>

@@ -38,31 +38,32 @@ export default function Header({ socials }: Props) {
           ))}
         </motion.div>
 
-        <a href="/#contact" className='hover:opacity-50'>
-          <motion.div
-            initial={{
-              x: 500,
-              opacity: 0,
-              scale: 0.5
-            }}
-            animate={{
-              x: 0,
-              opacity: 1,
-              scale: 1
-            }}
-            transition={{
-              duration: 2
-            }}
-            className="flex flex-row items-center text-gray-300 cursor-pointer">
+        <motion.div
+          initial={{
+            x: 500,
+            opacity: 0,
+            scale: 0.5
+          }}
+          animate={{
+            x: 0,
+            opacity: 1,
+            scale: 1
+          }}
+          transition={{
+            duration: 2
+          }}
+          className="flex flex-row items-center text-gray-300 cursor-pointer">
+          <div className='hover:opacity-50'>
             <SocialIcon
               className='cursor-pointer'
               network='email'
               fgColor='gray'
               bgColor='transparent'
+              url='/#contact'
             />
             <p className="hidden text-sm text-gray-400 uppercase md:inline-flex">Get In Touch</p>
-          </motion.div>
-        </a>
+          </div>
+        </motion.div>
       </header>
     </>
   )
