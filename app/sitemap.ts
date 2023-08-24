@@ -29,15 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
         },
         {
-            url: 'mailto:harper@rainierdigitalsolution.com',
-            lastModified: new Date(),
-        },
-        {
             url: 'https://rainierdigitalsolutions.com',
-            lastModified: new Date(),
-        },
-        {
-            url: `${baseUrl}/#experience`,
             lastModified: new Date(),
         },
     ]
