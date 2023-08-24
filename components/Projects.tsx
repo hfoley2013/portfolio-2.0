@@ -44,7 +44,7 @@ function Projects({ projects }: Props) {
       <div className={`relative z-20 flex w-full snap-x snap-mandatory ${isMobileDevice ? 'scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 overflow-x-scroll overflow-y-hidden' : ''}`}>
         {isMobileDevice ? (
           projects?.map((project, i) => (
-            <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 space-y-5 sm:p-5 snap-center md:p-20 lg:p-44">
+            <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 mt-8 space-y-5 sm:mt-5 md:mt-3 lg:mt-auto sm:p-5 snap-center md:p-20 lg:p-44">
               <motion.img
                 initial={{
                   y: -300,
@@ -55,7 +55,7 @@ function Projects({ projects }: Props) {
                 viewport={{ once: true }}
                 src={urlForImage(project?.image.asset).url()}
                 alt={project.title}
-                className="max-h-[600px]"
+                className="md:max-h-[600px]"
               />
 
               <div className="max-w-6xl px-0 space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-10 md:px-10">
