@@ -49,7 +49,7 @@ function ExperienceCard({ experience }: Props) {
         </p>
 
 
-        <ul className='w-4/5 pr-5 ml-5 space-y-1 sm:space-y-2 md:space-y-4 text-[10px] list-disc sm:text-xs md:text-base lg:text-lg h-48 sm:h-64 md:h-96'>
+        <ul className='w-4/5 pr-5 ml-5 space-y-1 sm:space-y-2 md:space-y-4 text-[10px] list-disc sm:text-xs md:text-base lg:text-lg h-48 sm:h-52 md:h-64 lg:h-96'>
 
           {experience?.points.map((point, i) => (
             <li key={i}>
