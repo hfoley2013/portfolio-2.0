@@ -5,6 +5,9 @@ import { motion } from 'framer-motion'
 import { Project } from '../typings'
 import { urlForImage } from '@/sanity/lib/image'
 import { useState } from 'react'
+import { Button } from "@/components/ui/button"
+import { DoubleArrowRightIcon } from "@radix-ui/react-icons"
+import { DoubleArrowLeftIcon } from "@radix-ui/react-icons"
 
 type Props = {
   projects?: Project[]
@@ -127,18 +130,20 @@ function Projects({ projects }: Props) {
                   </p>
                 </div>
               </div>
-              <button
+              <Button
+                variant='outline'
                 onClick={goToPreviousProject}
-                className="absolute left-8 top-[50%] transform -translate-y-1/2 z-30 p-4 text-white bg-black bg-opacity-50"
+                className="absolute left-8 top-[50%] transform -translate-y-1/2 z-30 p-4 text-white bg-black bg-opacity-50 border border-[#F7AB0A]/80"
               >
-                &lt; {/* Left arrow */}
-              </button>
-              <button
+                <DoubleArrowLeftIcon className='w-5 h-5' />
+              </Button>
+              <Button
+                variant='outline'
                 onClick={goToNextProject}
-                className="absolute right-8 top-[50%] transform -translate-y-1/2 z-30 p-4 text-white bg-black bg-opacity-50"
+                className="absolute right-8 top-[50%] transform -translate-y-1/2 z-30 p-4 text-white bg-black bg-opacity-50 border border-[#F7AB0A]/80"
               >
-                &gt; {/* Right arrow */}
-              </button>
+                <DoubleArrowRightIcon className='w-5 h-5' />
+              </Button>
             </>
           ))}
       </div>
