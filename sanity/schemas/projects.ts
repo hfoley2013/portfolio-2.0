@@ -43,7 +43,7 @@ export default defineType({
   ],
   orderings: [
     {
-      title: "Custom Sort Order",
+      title: "Order",
       name: "customSortOrder",
       by: [
         { field: "order", direction: "asc" },
