@@ -67,7 +67,7 @@ function ContactMe({ pageInfo }: Props) {
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-1 sm:space-y-2 md:space-y-4 lg:space-y-10">
+      <div className="flex flex-col mt-8 space-y-1 sm:mt-5 md:mt-3 lg:mt-0 sm:space-y-2 md:space-y-4 lg:space-y-10">
         <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-4xl">
           Got a project in mind?{" "}
           <span className="decoration-[#F7AB0A]/50 underline">

@@ -37,13 +37,13 @@ function About({ pageInfo }: Props) {
         className="flex-shrink-0 object-cover sm:block hidden rounded-full md:mb-0 md:rounded-lg md:w-60 md:h-72 xl:w-[500px] xl:h-[600px]"
       />
 
-      <div className="px-0 mt-2 space-y-10 sm:mt-0 md:px-10">
+      <div className="px-0 pt-5 mt-5 space-y-10 sm:mt-2 sm:pt-2 md:pt-0 md:mt-0 md:px-10">
         <h4 className="text-xl font-semibold sm:text-xl md:text-2xl lg:text-4xl">
           Here is a{" "}
           <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
           background
         </h4>
-        <p className="text-base lg:text-xl">
+        <p className="text-base text-left lg:text-xl">
           {pageInfo?.backgroundInformation}
         </p>
 
