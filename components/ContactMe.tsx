@@ -3,7 +3,10 @@ import React from 'react'
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { PageInfo } from '@/typings'
-
+import { useToast } from '@/components/ui/use-toast'
+import { ToastAction } from '@/components/ui/toast'
+import sendEmail from '@/email.js/sendEmail'
+import { ConfigResolutionError } from 'sanity'
 
 type Props = {
   pageInfo?: PageInfo
@@ -17,56 +20,92 @@ type Inputs = {
 };
 
 function ContactMe({ pageInfo }: Props) {
-  const { 
-    register, 
-    handleSubmit, 
+  const {
+    register,
+    handleSubmit,
+    reset,
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:harper.e.foley@gmail.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
+  const { toast } = useToast();
+
+  const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+
+    const templateParams: Inputs = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    }
+
+    const response = await sendEmail(templateParams);
+
+    if (response != 'OK') {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your request.",
+        action: <ToastAction altText="Try again" onSubmit={handleSubmit(onSubmit)}> Try again</ ToastAction >,
+      });
+    } else {
+      toast({
+        title: `Thank you ${formData.name}!`,
+        description: (
+          <div className="flex flex-wrap p-4 mt-2 rounded-md bg-slate-950">
+            <code className="font-bold text-white">I have received your message and will be with you soon.</code>
+          </div>),
+      });
+
+      reset();
+    }
+
   };
 
   return (
     <div className="relative flex flex-col items-center h-screen px-10 mx-auto text-center md:text-left md:flex-row max-w-7xl justify-evenly">
-      <h3 className="absolute top-16 tracking-[20px] text-gray-500 text-2xl uppercase">
+
+      <h3 className="sectionHeader">
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-2 md:max-h-[calc(100vh-14rem)] md:overflow-auto md:scrollbar-thumb-[#F7AB0A]/80 md:scrollbar-thin">
-        <h4 className="text-2xl font-semibold text-center">
+      <div className="flex flex-col space-y-1 sm:space-y-2 md:space-y-4 lg:space-y-10">
+        <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-4xl">
           Got a project in mind?{" "}
           <span className="decoration-[#F7AB0A]/50 underline">
-            Let&apos;s Talk.
+            <a href={`mailto:${pageInfo?.email}`}>
+              Let&apos;s Talk.
+            </a>
           </span>
         </h4>
-        
-        <div className="space-y-2">
+
+
+        <div className="space-y-1 sm:space-y-2 md:space-y-4 lg:space-y-10">
+          <a href={`tel:${pageInfo?.phoneNumber}`} className="flex items-center justify-center space-x-5">
+            <PhoneIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.phoneNumber}</p>
+          </a>
+          <a href={`mailto:${pageInfo?.email}`} className="flex items-center justify-center space-x-5">
+            <EnvelopeIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
+            <p className="sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.email}</p>
+          </a>
+
           <div className="flex items-center justify-center space-x-5">
-            <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse"/>
-            <p className="text-2xl">{pageInfo?.phoneNumber}</p>
-          </div>
-          <div className="flex items-center justify-center space-x-5">
-            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse"/>
-            <p className="text-2xl">{pageInfo?.email}</p>
-          </div>
-          <div className="flex items-center justify-center space-x-5">
-            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse"/>
-            <p className="text-2xl">{pageInfo?.address}</p>
+            <MapPinIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
+            <p className="sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.address}</p>
           </div>
         </div>
 
-        <form 
+        <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col mx-auto space-y-2 w-fit"
+          className="flex flex-col mx-auto space-y-2 max-w-[350px] sm:max-w-[500px] md:max-w-none pt-5"
         >
           <div className="flex space-x-2">
-            <input {...register('name')} placeholder="Name" className="contactInput" type="text" />
-            <input  {...register('email')}placeholder="Email" className="contactInput" type="email" />
+            <input {...register('name')} placeholder="Name" className="contactInput max-w-[49%] sm:max-w-none" type="text" />
+            <input  {...register('email')} placeholder="Email" className="contactInput max-w-[49%] sm:max-w-none" type="email" />
           </div>
           <input  {...register('subject')} placeholder="Subject" className="contactInput" type="text" />
 
-          <textarea {...register('message')} placeholder="Message" className="contactInput"></textarea>
-          <button 
+          <textarea {...register('message')} placeholder="Message" className="h-28 sm:h-36 md:h-48 lg:h-52 contactInput"></textarea>
+          <button
             type="submit"
             className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"
           >
