@@ -18,6 +18,7 @@ function Skill({ directionLeft, skill }: Props) {
         transition={{ duration: 1 }}
         whileInView={{ opacity: 1, x: 0 }}
         src={urlForImage(skill?.image.asset).url()}
+        alt={skill?.title}
         loading='lazy'
         className="object-cover transition duration-300 ease-in-out rounded-lg w-14 h-14 md:w-16 md:h-16 lg:h-20 lg:w-20 xl:w-24 xl:h-24 filter group-hover:grayscale group-hover:rounded-full"
       />
