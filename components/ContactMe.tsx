@@ -98,8 +98,8 @@ function ContactMe({ pageInfo }: Props) {
             className="flex flex-col mx-auto space-y-2 max-w-[350px] sm:max-w-[500px] md:max-w-none"
           >
             <div className="flex space-x-2">
-              <input {...register('name')} placeholder="Name" className="contactInput max-w-[49%] sm:max-w-none" type="text" />
-              <input  {...register('email')} placeholder="Email" className="contactInput max-w-[49%] sm:max-w-none" type="email" />
+              <input {...register('name')} placeholder="Name" className="contactInput max-w-[49%] sm:max-w-none" type="text" autoComplete="name" />
+              <input  {...register('email')} placeholder="Email" className="contactInput max-w-[49%] sm:max-w-none" type="email" autoComplete="email" />
             </div>
             <input  {...register('subject')} placeholder="Subject" className="contactInput" type="text" />
 
