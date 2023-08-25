@@ -53,6 +53,7 @@ export interface Project extends SanityBody {
   summary: string;
   technologies: Technology[];
   order: number;
+  demo_id: string;
 }
 
 export interface Experience extends SanityBody {
