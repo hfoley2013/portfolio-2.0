@@ -43,7 +43,7 @@ function Projects({ projects }: Props) {
         Projects
       </h3>
 
-      <div className={`relative z-20 lg:mt-16 flex w-full snap-x snap-mandatory ${isMobileDevice ? 'scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 overflow-x-scroll overflow-y-hidden' : ''}`}>
+      <div className={`relative z-20 lg:mt-16 flex w-full snap-x snap-mandatory ${isMobileDevice ? 'scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 overflow-x-scroll overflow-y-hidden' : ''}`} suppressHydrationWarning>
         {isMobileDevice && projects ? (
           projects.map((project, i) => (
             <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 mt-8 space-y-5 sm:mt-5 md:mt-3 lg:mt-auto sm:p-5 snap-center md:p-20 lg:p-44">
