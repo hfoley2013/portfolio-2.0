@@ -10,7 +10,7 @@ type Props = {
 function Skills({ skills }: Props) {
 
   return (
-    skills && (
+    skills ? (
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -44,7 +44,12 @@ function Skills({ skills }: Props) {
           ))}
         </div>
       </motion.div>
-    ))
+    ) : (
+      <h3 className="hidden lg:block lg:absolute top-32 p-3 uppercase tracking-[3px] text-gray-500 text-[10px] sm:text-xs md:text-sm">
+        Skills Coming Soon!
+      </h3>
+    )
+  )
 }
 
 export default Skills
