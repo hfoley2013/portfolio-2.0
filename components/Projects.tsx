@@ -28,10 +28,9 @@ function Projects({ projects }: Props) {
       setCurrentProjectIndex((prevIndex) => (prevIndex === projects.length - 1 ? 0 : prevIndex + 1));
     }
   };
-  const sortedProjects = projects ? projects.sort((a, b) => a.order - b.order) : [];
 
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
-  const currentProject = sortedProjects[currentProjectIndex];
+  const currentProject = projects?.[currentProjectIndex];
 
   return (
     <motion.div
@@ -45,8 +44,8 @@ function Projects({ projects }: Props) {
       </h3>
 
       <div className={`relative z-20 lg:mt-16 flex w-full snap-x snap-mandatory ${isMobileDevice ? 'scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 overflow-x-scroll overflow-y-hidden' : ''}`}>
-        {isMobileDevice ? (
-          sortedProjects.map((project, i) => (
+        {isMobileDevice && projects ? (
+          projects.map((project, i) => (
             <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 mt-8 space-y-5 sm:mt-5 md:mt-3 lg:mt-auto sm:p-5 snap-center md:p-20 lg:p-44">
               <motion.img
                 initial={{
@@ -65,7 +64,7 @@ function Projects({ projects }: Props) {
               <div className="max-w-6xl px-0 space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-10 md:px-10">
                 <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-4xl">
                   <span className="underline decoration-[#F7AB0A]/50">
-                    Case Study {i + 1} of {sortedProjects.length}:
+                    Case Study {i + 1} of {projects.length}:
                   </span>{" "}
                   {project.title}
                 </h4>
@@ -109,7 +108,7 @@ function Projects({ projects }: Props) {
                 <div className="max-w-6xl px-0 space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-10 md:px-10">
                   <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-3xl">
                     <span className="underline decoration-[#F7AB0A]/50">
-                      Case Study {currentProjectIndex + 1} of {sortedProjects.length}:
+                      Case Study {currentProjectIndex + 1} of {projects.length}:
                     </span>{" "}
                     {currentProject.title}
                   </h4>

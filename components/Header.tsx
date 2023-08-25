@@ -18,7 +18,7 @@ export default function Header({ socials }: Props) {
       <header className="sticky top-0 z-20 flex items-start justify-between p-5 mx-auto max-w-7xl xl:items-center">
         <motion.div
           initial={{
-            x: -500,
+            x: -200,
             opacity: 0,
             scale: 0.5
           }}
@@ -31,14 +31,14 @@ export default function Header({ socials }: Props) {
             duration: 1.5
           }}
           className="flex flex-row items-center">
-          {/* <Link href="https://rainierdigitalsolutions.com" target='_blank'>
+          <Link href="https://rainierdigitalsolutions.com" target='_blank'>
             <Image
               src={isMobile ? "/rds-logo.svg" : "/rds-full-logo.svg"}
               alt='Rainier Digital Solutions Logo'
               fill
               className='p-3 sm:p-0 hover:opacity-50'
             />
-          </Link> */}
+          </Link>
           {socials?.map((social) => (
             <SocialIcon
               key={social._id}
@@ -52,7 +52,7 @@ export default function Header({ socials }: Props) {
 
         <motion.div
           initial={{
-            x: 500,
+            x: 200,
             opacity: 0,
             scale: 0.5
           }}

@@ -4,7 +4,7 @@ import { Project } from "../../../typings";
 import { NextResponse } from "next/server";
 
 const query = groq`
-  *[_type == "projects"] {
+  *[_type == "projects"] | order(order asc) {
     ...,
     technologies[]->
   }
