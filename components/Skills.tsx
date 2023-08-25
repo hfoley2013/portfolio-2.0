@@ -15,33 +15,33 @@ function Skills({ skills }: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="relative flex flex-col h-screen text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center"
+      className="relative flex flex-col h-screen text-center max-w-[2000px] xl:px-10 min-h-screen justify-center lg:grid-flow-col"
     >
-      <h3 className="sectionHeader">
-        Skills
-      </h3>
+      <div className='flex justify-center'>
+        <h3 className="sectionHeader">
+          Skills
+        </h3>
 
-      <h3 className="absolute top-28 md:top-32 uppercase tracking-[3px] text-gray-500 text-[10px] sm:text-xs md:text-sm">
-        Hover over a skill for current proficiency
-      </h3>
+        <h3 className="hidden lg:block lg:absolute top-32 p-3 uppercase tracking-[3px] text-gray-500 text-[10px] sm:text-xs md:text-sm">
+          Hover over a skill for current proficiency
+        </h3>
+      </div>
 
-      <div className="max-h-[320px] md:max-h-none">
-        <div className="grid grid-cols-4 gap-4 sm:gap-4 md:gap-5">
-          {sortedSkills.slice(0, sortedSkills.length / 2).map((skill) => (
-            <Skill
-              key={skill._id}
-              skill={skill}
-            />
-          ))}
+      <div className="relative grid justify-center grid-cols-3 gap-2 mt-5 lg:mt-10 xl:mt-20 lg:grid-cols-4 justify-items-center align-items-center lg:gap-3 max-h-[80vh]">
+        {sortedSkills.slice(0, sortedSkills.length / 2).map((skill) => (
+          <Skill
+            key={skill._id}
+            skill={skill}
+          />
+        ))}
 
-          {sortedSkills.slice(sortedSkills.length / 2, sortedSkills.length).map((skill) => (
-            <Skill
-              key={skill._id}
-              skill={skill}
-              directionLeft={true}
-            />
-          ))}
-        </div>
+        {sortedSkills.slice(sortedSkills.length / 2, sortedSkills.length).map((skill) => (
+          <Skill
+            key={skill._id}
+            skill={skill}
+            directionLeft={true}
+          />
+        ))}
       </div>
     </motion.div>
   )

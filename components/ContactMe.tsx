@@ -65,7 +65,7 @@ function ContactMe({ pageInfo }: Props) {
         Contact
       </h3>
 
-      <div className="max-h-[340px] sm:max-h-[400px] md:max-h-none">
+      <div className="max-h-[70vh] p-10">
         <div className="flex flex-col space-y-1 sm:mt-5 md:mt-3 lg:mt-0 sm:space-y-2 md:space-y-3">
           <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
             Got a project in mind?{" "}
@@ -95,7 +95,7 @@ function ContactMe({ pageInfo }: Props) {
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col mx-auto space-y-2 max-w-[350px] sm:max-w-[500px] md:max-w-none pt-5"
+            className="flex flex-col mx-auto space-y-2 max-w-[350px] sm:max-w-[500px] md:max-w-none"
           >
             <div className="flex space-x-2">
               <input {...register('name')} placeholder="Name" className="contactInput max-w-[49%] sm:max-w-none" type="text" />
@@ -103,7 +103,7 @@ function ContactMe({ pageInfo }: Props) {
             </div>
             <input  {...register('subject')} placeholder="Subject" className="contactInput" type="text" />
 
-            <textarea {...register('message')} placeholder="Message" className="h-28 sm:h-36 md:h-44 lg:h-52 contactInput"></textarea>
+            <textarea {...register('message')} placeholder="Message" className="xl:min-h-[150px] contactInput"></textarea>
             <button
               type="submit"
               className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"

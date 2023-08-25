@@ -19,34 +19,36 @@ function About({ pageInfo }: Props) {
         About
       </h3>
 
-      <motion.img
-        initial={{
-          x: -200,
-          opacity: 0,
-        }}
-        transition={{
-          duration: 1.2,
-        }}
-        whileInView={{
-          x: 0,
-          opacity: 1,
-        }}
-        viewport={{ once: true }}
-        src={pageInfo ? urlForImage(pageInfo.heroImage.asset).url() : ''}
-        loading='lazy'
-        className="flex-shrink-0 object-cover sm:block hidden rounded-full md:mb-0 md:rounded-lg md:w-60 md:h-72 xl:w-[500px] xl:h-[600px]"
-      />
+      <div className='flex flex-col items-center justify-center mt-20 xs:flex-row'>
+        <motion.img
+          initial={{
+            x: -100,
+            opacity: 0,
+          }}
+          transition={{
+            duration: 1.2,
+          }}
+          whileInView={{
+            x: 0,
+            opacity: 1,
+          }}
+          viewport={{ once: true }}
+          src={pageInfo ? urlForImage(pageInfo.heroImage.asset).url() : ''}
+          loading='lazy'
+          className="flex-shrink-0 object-cover rounded-full w-32 p-2 xs:w-36 xs:rounded-lg md:w-60 md:h-72 lg:w-[300px] lg:h-[360px] 2xl:w-[500px] 2xl:h-[600px]"
+        />
 
-      <div className="px-0 pt-5 mt-5 space-y-10 sm:mt-2 sm:pt-2 md:pt-0 md:mt-0 md:px-10">
-        <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl lg:text-4xl">
-          Here is a{" "}
-          <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
-          background
-        </h4>
-        <p className="text-base text-left md:text-lg lg:text-xl">
-          {pageInfo?.backgroundInformation}
-        </p>
+        <div className="space-y-1 text-center sm:px-2 md:px-5 sm:text-left sm:space-y-2 lg:space-y-4">
+          <h4 className="text-lg font-semibold xs:text-xl md:text-2xl lg:text-4xl">
+            Here is a{" "}
+            <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
+            background
+          </h4>
+          <p className="text-[11px] text-left md:text-base lg:text-lg xl:text-xl">
+            {pageInfo?.backgroundInformation}
+          </p>
 
+        </div>
       </div>
     </motion.div>
   )

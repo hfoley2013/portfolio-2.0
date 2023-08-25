@@ -31,14 +31,14 @@ export default function Header({ socials }: Props) {
             duration: 1.5
           }}
           className="flex flex-row items-center">
-          <Link href="https://rainierdigitalsolutions.com" target='_blank'>
+          {/* <Link href="https://rainierdigitalsolutions.com" target='_blank'>
             <Image
               src={isMobile ? "/rds-logo.svg" : "/rds-full-logo.svg"}
               alt='Rainier Digital Solutions Logo'
               fill
               className='p-3 sm:p-0 hover:opacity-50'
             />
-          </Link>
+          </Link> */}
           {socials?.map((social) => (
             <SocialIcon
               key={social._id}
