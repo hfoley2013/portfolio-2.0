@@ -1,24 +1,24 @@
 import { useState, useEffect } from 'react';
 
 function useIsMobileDeviceView() {
-    const [isMobileDevice, setIsMobileDevice] = useState<boolean>(false);
+    const isSSR = typeof window === 'undefined';
+    const [isMobileDevice, setIsMobileDevice] = useState<boolean>(isSSR ? false : window.innerWidth <= 820);
 
     useEffect(() => {
-        const checkWindowSize = () => {
-            setIsMobileDevice(window.innerWidth <= 820);
-        };
+        if (!isSSR) {
+            const checkWindowSize = () => {
+                setIsMobileDevice(window.innerWidth <= 820);
+            };
 
-        // Initial check
-        checkWindowSize();
+            // Add event listener for window resize
+            window.addEventListener('resize', checkWindowSize);
 
-        // Add event listener for window resize
-        window.addEventListener('resize', checkWindowSize);
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('resize', checkWindowSize);
-        };
-    }, []);
+            // Clean up the event listener when the component unmounts
+            return () => {
+                window.removeEventListener('resize', checkWindowSize);
+            };
+        }
+    }, [isSSR]);
 
     return isMobileDevice;
 }
