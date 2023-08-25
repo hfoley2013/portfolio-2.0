@@ -10,9 +10,8 @@ type Props = {
 function ExperienceCard({ experience }: Props) {
   return (
     // <article className="flex max-h-[350px] sm:max-h-[400px] md:max-h-[450px] lg:max-h-[500px] flex-col items-center flex-shrink-0 rounded-lg sm:space-y-2 md:space-y-3 w-full md:w-[600px] xl:w-[800px] snap-center bg-[#292929] p-2 sm:p-5 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200">
-    <article className="flex p-2 sm:p-3 md:p-5 md:max-w-4xl flex-col items-center flex-shrink-0 rounded-lg w-full snap-center bg-[#292929] hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200">
+    <article className="mt-20 flex p-2 sm:p-3 md:p-5 md:max-w-4xl flex-col items-center flex-shrink-0 rounded-lg w-full snap-center bg-[#292929] hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200">
       <motion.img
-
         initial={{
           y: -50,
           opacity: 0
@@ -28,7 +27,7 @@ function ExperienceCard({ experience }: Props) {
       <div className="px-0 md:px-10">
         <h4 className="text-base font-light sm:text-ls md:text-xl lg:text-2xl">{experience?.jobTitle}</h4>
         <p className="mt-1 text-sm font-bold sm:text-base md:text-lg lg:text-xl">{experience?.company}</p>
-        <div className="flex my-1 space-x-2 sm:my-2 justify-evenly">
+        <div className="flex p-1 my-1 space-x-1 xs:space-x-2 sm:my-2 justify-evenly">
           {experience?.technologies?.map((technology) => (
             <Image
               key={technology._id}
