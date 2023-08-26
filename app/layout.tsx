@@ -16,7 +16,6 @@ export const metadata = {
   viewport: {
     width: 'device-width',
     initialScale: 1,
-    maximumScale: 5,
   },
   metadataBase: new URL('https://harperfoley.com'),
   alternates: {
@@ -47,6 +46,8 @@ export const metadata = {
   },
   icons: {
     icon: '/favicon.ico',
+    apple: '/favicon.ico',
+    shortcut: '/favicon.ico',
   },
   twitter: {
     card: 'summary_large_image',
@@ -58,6 +59,7 @@ export const metadata = {
       height: 320,
       alt: 'Harper Foley',
     },
+    manifest: "https://harperfoley.com/manifest.json",
   },
 }
 
