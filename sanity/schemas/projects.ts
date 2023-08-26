@@ -20,6 +20,12 @@ export default defineType({
       }
     }),
     defineField({
+      name: "demo_id",
+      title: "Demo Id",
+      type: "text",
+      description: "Id of YouTube Video",
+    }),
+    defineField({
       name: "summary",
       title: "Summary",
       type: "text",

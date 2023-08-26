@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { DoubleArrowRightIcon } from "@radix-ui/react-icons"
 import { DoubleArrowLeftIcon } from "@radix-ui/react-icons"
 import useIsMobileDeviceView from '@/hooks/useIsMobileDeviceView'
+import { useLazyLoad } from '@/hooks/useLazyLoad'
 
 type Props = {
   projects?: Project[]
@@ -16,6 +17,8 @@ type Props = {
 function Projects({ projects }: Props) {
 
   const isMobileDevice = useIsMobileDeviceView();
+
+  useLazyLoad(".lazy");
 
   const goToPreviousProject = () => {
     if (projects) {
@@ -43,26 +46,45 @@ function Projects({ projects }: Props) {
         Projects
       </h3>
 
-      <div className={`relative z-20 lg:mt-16 flex w-full snap-x snap-mandatory ${isMobileDevice ? 'scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 overflow-x-scroll overflow-y-hidden' : ''}`} suppressHydrationWarning>
+      <div className={`absolute z-20 flex w-full snap-x snap-mandatory ${isMobileDevice ? 'scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 overflow-x-scroll overflow-y-hidden' : ''}`} suppressHydrationWarning>
         {isMobileDevice && projects ? (
           projects.map((project, i) => (
-            <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 mt-8 space-y-5 sm:mt-5 md:mt-3 lg:mt-auto sm:p-5 snap-center md:p-20 lg:p-44">
-              <motion.img
-                initial={{
-                  y: -100,
-                  opacity: 0,
-                }}
-                transition={{ duration: 1.2 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                src={urlForImage(project.image.asset).url()}
-                loading='lazy'
-                alt={project.title}
-                className="md:max-h-[600px]"
-              />
+            <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 mt-8 space-y-5 sm:mt-5 sm:p-5 snap-center md:p-20 xl:p-44">
+              {project.demo_id
+                ?
+                (
+                  <div id="video-container">
+                    <motion.iframe
+                      initial={{
+                        y: -100,
+                        opacity: 0,
+                      }}
+                      transition={{ duration: 1.2 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="aspect-video"
+                      id="ytplayer"
+                      typeof="text/html"
+                      src={`https://www.youtube.com/embed/${project.demo_id}?playlist=${project.demo_id}&autoplay=1&controls=0&enablejsapi=1&loop=1&playsinline=1&mute=1&showinfo=0&rel=0&iv_load_policy=3`}
+                    />
+                  </div>
+                )
+                :
+                (<motion.img
+                  initial={{
+                    y: -100,
+                    opacity: 0,
+                  }}
+                  transition={{ duration: 1.2 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  src={urlForImage(project.image.asset).url()}
+                  alt={project.title}
+                  className="md:max-h-[600px] lazy"
+                />)}
 
-              <div className="max-w-6xl px-0 space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-10 md:px-10">
-                <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-4xl">
+              <div className="max-w-6xl px-0 space-y-2 md:space-y-6 xl:space-y-6 xl:px-10">
+                <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl xl:text-4xl">
                   <span className="underline decoration-[#F7AB0A]/50">
                     Case Study {i + 1} of {projects.length}:
                   </span>{" "}
@@ -78,7 +100,7 @@ function Projects({ projects }: Props) {
                       width={250}
                       height={250}
                       loading='lazy'
-                      className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                      className="w-10 h-10 sm:w-12 sm:h-12 xl:w-20 xl:h-20"
                     />
                   ))}
                 </div>
@@ -91,21 +113,44 @@ function Projects({ projects }: Props) {
           ))) :
           (currentProject && (
             <>
-              <div key={currentProject._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 space-y-5 sm:p-5 snap-center md:p-20 lg:p-44">
-                <motion.img
-                  initial={{
-                    y: -300,
-                    opacity: 0,
-                  }}
-                  transition={{ duration: 1.2 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  src={urlForImage(currentProject.image.asset).url()}
-                  alt={currentProject.title}
-                  className="md:max-h-[300px]"
-                />
+              <div key={currentProject._id} className="flex flex-col items-c?auto=1&muted=1&controls=0-screen h-screen p-4 space-y-5 sm:p-5 snap-center md:p-20 lg:p-44">
+                <div
+                  id="video-container"
+                >
+                  {currentProject.demo_id
+                    ?
+                    (<motion.iframe
+                      initial={{
+                        y: -100,
+                        opacity: 0,
+                      }}
+                      transition={{ duration: 1.2 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="min-h-[300px] mx-auto  aspect-video"
+                      id="ytplayer"
+                      typeof="text/html"
+                      src={`https://www.youtube.com/embed/${currentProject.demo_id}?playlist=${currentProject.demo_id}&autoplay=1&controls=0&enablejsapi=1&loop=1&playsinline=1&mute=1&showinfo=0&rel=0&iv_load_policy
+=3`}
+                      allowFullScreen
+                    />
+                    )
+                    :
+                    (<motion.img
+                      initial={{
+                        y: -100,
+                        opacity: 0,
+                      }}
+                      transition={{ duration: 1.2 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      src={urlForImage(currentProject.image.asset).url()}
+                      alt={currentProject.title}
+                      className="md:max-h-[600px] lazy"
+                    />)}
+                </div>
 
-                <div className="max-w-6xl px-0 space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-10 md:px-10">
+                <div className="max-w-6xl px-0 space-y-2 sm:space-y-4 md:space-y-6 xl:space-y-10 md:px-10">
                   <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-3xl">
                     <span className="underline decoration-[#F7AB0A]/50">
                       Case Study {currentProjectIndex + 1} of {projects.length}:
@@ -126,7 +171,7 @@ function Projects({ projects }: Props) {
                     ))}
                   </div>
 
-                  <p className="text-sm text-left sm:text-base md:text-lg lg:text-xl">
+                  <p className="text-sm text-left sm:text-base xl:text-lg">
                     {currentProject.summary}
                   </p>
                 </div>
