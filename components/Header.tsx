@@ -46,6 +46,7 @@ export default function Header({ socials }: Props) {
               fgColor='gray'
               bgColor='transparent'
               className='hover:opacity-50'
+              aria-label={social.title}
             />
           ))}
         </motion.div>
@@ -69,6 +70,7 @@ export default function Header({ socials }: Props) {
             <SocialIcon
               className='cursor-pointer'
               network='email'
+              aria-label='email'
               fgColor='gray'
               bgColor='transparent'
               url='/#contact'
