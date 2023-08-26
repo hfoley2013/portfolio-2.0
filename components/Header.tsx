@@ -11,7 +11,6 @@ type Props = {
 }
 
 export default function Header({ socials }: Props) {
-  const isMobile = useIsMobileDeviceView();
 
   return (
     <>
@@ -31,14 +30,6 @@ export default function Header({ socials }: Props) {
             duration: 1.5
           }}
           className="flex flex-row items-center">
-          <Link href="https://rainierdigitalsolutions.com" target='_blank'>
-            <Image
-              src={isMobile ? "/rds-logo.svg" : "/rds-full-logo.svg"}
-              alt='Rainier Digital Solutions Logo'
-              fill
-              className='p-3 sm:p-0 hover:opacity-50'
-            />
-          </Link>
           {socials?.map((social) => (
             <SocialIcon
               key={social._id}
@@ -49,6 +40,16 @@ export default function Header({ socials }: Props) {
               aria-label={social.title}
             />
           ))}
+          <Link href="https://rainierdigitalsolutions.com" target='_blank'>
+            <Image
+              src="/rds-logo.svg"
+              alt='Rainier Digital Solutions Logo'
+              className='p-3 sm:p-0 hover:opacity-50'
+              priority
+              width={50}
+              height={50}
+            />
+          </Link>
         </motion.div>
 
         <motion.div
