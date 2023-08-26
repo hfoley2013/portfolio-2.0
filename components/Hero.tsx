@@ -33,11 +33,11 @@ export default function Hero({ pageInfo }: Props) {
           priority
         />
         <div className="z-20 mt-2 sm:mt-5">
-          <h2 className="text-xs tracking-[10px] sm:text-sm md:text-lg uppercase text-gray-500 pb-2 sm:tracking-[15px]">{pageInfo?.role}</h2>
-          <h1 className="px-10 text-xl font-semibold sm:text-2xl lg:text-4xl">
+          <h1 className="text-xs tracking-[10px] sm:text-sm md:text-lg uppercase text-gray-500 pb-2 sm:tracking-[15px]">{pageInfo?.role}</h1>
+          <h2 className="px-10 text-xl font-semibold sm:text-2xl lg:text-4xl">
             <span className="mr-2">{text}</span>
             <Cursor cursorColor="#F7AB0A" />
-          </h1>
+          </h2>
 
           <div className="grid w-screen grid-cols-2 mt-2 sm:block sm:mt-5">
             <a href="/#about" className="heroButton">About</a>

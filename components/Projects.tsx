@@ -133,6 +133,7 @@ function Projects({ projects }: Props) {
               </div>
               <Button
                 variant='outline'
+                aria-label="Previous Project"
                 onClick={goToPreviousProject}
                 className="absolute left-8 top-[50%] transform -translate-y-1/2 z-30 p-4 text-white bg-black bg-opacity-50 border border-[#F7AB0A]/80"
               >
@@ -140,6 +141,7 @@ function Projects({ projects }: Props) {
               </Button>
               <Button
                 variant='outline'
+                aria-label="Next Project"
                 onClick={goToNextProject}
                 className="absolute right-8 top-[50%] transform -translate-y-1/2 z-30 p-4 text-white bg-black bg-opacity-50 border border-[#F7AB0A]/80"
               >
