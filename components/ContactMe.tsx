@@ -107,6 +107,7 @@ function ContactMe({ pageInfo }: Props) {
             <button
               type="submit"
               className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"
+              aria-label="Submit"
             >
               Submit
             </button>
