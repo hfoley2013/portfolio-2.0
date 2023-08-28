@@ -8,8 +8,6 @@ import { Button } from "@/components/ui/button"
 import { DoubleArrowRightIcon } from "@radix-ui/react-icons"
 import { DoubleArrowLeftIcon } from "@radix-ui/react-icons"
 import useIsMobileDeviceView from '@/hooks/useIsMobileDeviceView'
-import { useLazyLoad } from '@/hooks/useLazyLoad'
-
 type Props = {
   projects?: Project[]
 }
@@ -17,8 +15,6 @@ type Props = {
 function Projects({ projects }: Props) {
 
   const isMobileDevice = useIsMobileDeviceView();
-
-  useLazyLoad(".lazy");
 
   const goToPreviousProject = () => {
     if (projects) {
@@ -62,10 +58,11 @@ function Projects({ projects }: Props) {
                       transition={{ duration: 1.2 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      className="aspect-video lazy"
+                      className="aspect-video"
                       id="ytplayer"
                       typeof="text/html"
-                      data-src={`https://www.youtube.com/embed/${project.demo_id}?playlist=${project.demo_id}&autoplay=1&controls=0&enablejsapi=1&loop=1&playsinline=1&mute=1&showinfo=0&rel=0&iv_load_policy=3`}
+                      src={`https://www.youtube.com/embed/${project.demo_id}?playlist=${project.demo_id}&autoplay=1&controls=0&enablejsapi=1&loop=1&playsinline=1&mute=1&showinfo=0&rel=0&iv_load_policy=3`}
+                      loading='lazy'
                     />
                   </div>
                 )
@@ -80,7 +77,8 @@ function Projects({ projects }: Props) {
                   viewport={{ once: true }}
                   src={urlForImage(project.image.asset).url()}
                   alt={project.title}
-                  className="md:max-h-[600px] lazy"
+                  className="md:max-h-[600px]"
+                  loading='lazy'
                 />)}
 
               <div className="max-w-6xl px-0 space-y-2 md:space-y-6 xl:space-y-6 xl:px-10">
@@ -95,12 +93,13 @@ function Projects({ projects }: Props) {
                   {project.technologies.map((technology, i) => (
                     <Image
                       key={`${i}-${technology}`}
-                      src={urlForImage(technology.image.asset).url()}
+                      src=""
+                      data-src={urlForImage(technology.image.asset).url()}
                       alt={technology.title}
                       width={250}
                       height={250}
-                      loading='lazy'
                       className="w-10 h-10 sm:w-12 sm:h-12 xl:w-20 xl:h-20"
+                      loading='lazy'
                     />
                   ))}
                 </div>
@@ -127,12 +126,13 @@ function Projects({ projects }: Props) {
                       transition={{ duration: 1.2 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      className="min-h-[300px] mx-auto aspect-video lazy"
+                      className="min-h-[300px] mx-auto aspect-video"
                       id="ytplayer"
                       typeof="text/html"
                       src={`https://www.youtube.com/embed/${currentProject.demo_id}?playlist=${currentProject.demo_id}&autoplay=1&controls=0&enablejsapi=1&loop=1&playsinline=1&mute=1&showinfo=0&rel=0&iv_load_policy
 =3`}
                       allowFullScreen
+                      loading='lazy'
                     />
                     )
                     :
@@ -146,7 +146,8 @@ function Projects({ projects }: Props) {
                       viewport={{ once: true }}
                       src={urlForImage(currentProject.image.asset).url()}
                       alt={currentProject.title}
-                      className="md:max-h-[600px] lazy"
+                      className="md:max-h-[600px]"
+                      loading='lazy'
                     />)}
                 </div>
 
@@ -167,6 +168,7 @@ function Projects({ projects }: Props) {
                         width={250}
                         height={250}
                         className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                        loading="lazy"
                       />
                     ))}
                   </div>
