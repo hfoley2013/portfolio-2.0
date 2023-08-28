@@ -8,8 +8,6 @@ import { Button } from "@/components/ui/button"
 import { DoubleArrowRightIcon } from "@radix-ui/react-icons"
 import { DoubleArrowLeftIcon } from "@radix-ui/react-icons"
 import useIsMobileDeviceView from '@/hooks/useIsMobileDeviceView'
-import { useLazyLoad } from '@/hooks/useLazyLoad'
-
 type Props = {
   projects?: Project[]
 }
@@ -17,8 +15,6 @@ type Props = {
 function Projects({ projects }: Props) {
 
   const isMobileDevice = useIsMobileDeviceView();
-
-  useLazyLoad(".lazy");
 
   const goToPreviousProject = () => {
     if (projects) {
