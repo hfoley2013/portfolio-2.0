@@ -49,7 +49,7 @@ function Projects({ projects }: Props) {
       <div className={`absolute z-20 flex w-full snap-x snap-mandatory ${isMobileDevice ? 'scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 overflow-x-scroll overflow-y-hidden' : ''}`} suppressHydrationWarning>
         {isMobileDevice && projects ? (
           projects.map((project, i) => (
-            <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 mt-8 space-y-5 sm:mt-5 sm:p-5 snap-center md:p-20 xl:p-44">
+            <div key={project._id} className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-4 mx-auto mt-8 space-y-5 sm:mt-5 sm:p-5 snap-center md:p-20 xl:p-44">
               {project.demo_id
                 ?
                 (
@@ -62,10 +62,10 @@ function Projects({ projects }: Props) {
                       transition={{ duration: 1.2 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      className="aspect-video"
+                      className="aspect-video lazy"
                       id="ytplayer"
                       typeof="text/html"
-                      src={`https://www.youtube.com/embed/${project.demo_id}?playlist=${project.demo_id}&autoplay=1&controls=0&enablejsapi=1&loop=1&playsinline=1&mute=1&showinfo=0&rel=0&iv_load_policy=3`}
+                      data-src={`https://www.youtube.com/embed/${project.demo_id}?playlist=${project.demo_id}&autoplay=1&controls=0&enablejsapi=1&loop=1&playsinline=1&mute=1&showinfo=0&rel=0&iv_load_policy=3`}
                     />
                   </div>
                 )
@@ -113,7 +113,7 @@ function Projects({ projects }: Props) {
           ))) :
           (currentProject && (
             <>
-              <div key={currentProject._id} className="flex flex-col items-c?auto=1&muted=1&controls=0-screen h-screen p-4 space-y-5 sm:p-5 snap-center md:p-20 lg:p-44">
+              <div key={currentProject._id} className="flex flex-col items-center justify-center h-screen p-4 mx-auto space-y-5 screen sm:p-5 snap-center md:p-20 lg:p-44">
                 <div
                   id="video-container"
                 >
@@ -127,7 +127,7 @@ function Projects({ projects }: Props) {
                       transition={{ duration: 1.2 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      className="min-h-[300px] mx-auto  aspect-video"
+                      className="min-h-[300px] mx-auto aspect-video lazy"
                       id="ytplayer"
                       typeof="text/html"
                       src={`https://www.youtube.com/embed/${currentProject.demo_id}?playlist=${currentProject.demo_id}&autoplay=1&controls=0&enablejsapi=1&loop=1&playsinline=1&mute=1&showinfo=0&rel=0&iv_load_policy
