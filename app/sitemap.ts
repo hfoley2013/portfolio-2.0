@@ -28,9 +28,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/#contact`,
             lastModified: new Date(),
         },
-        {
-            url: 'https://rainierdigitalsolutions.com',
-            lastModified: new Date(),
-        },
     ]
 }
