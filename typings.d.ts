@@ -43,6 +43,7 @@ export interface Skill extends SanityBody {
   image: Image;
   progress: number;
   title: string;
+  includeInSkillsSection: boolean;
 }
 
 export interface Project extends SanityBody {

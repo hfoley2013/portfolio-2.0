@@ -26,6 +26,12 @@ export default defineType({
         hotspot: true,
       }
     }),
+    defineField({
+      name: 'includeInSkillsSection',
+      title: 'Include in Skills Section?',
+      description: 'True will display tech in skills section. False will allow you to only render within projects.',
+      type: 'boolean',
+    }),
   ],
   orderings: [
     {

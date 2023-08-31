@@ -8,9 +8,10 @@ type Props = {
 }
 
 function Skills({ skills }: Props) {
+  const includedSkills = skills?.filter(skill => skill.includeInSkillsSection);
 
   return (
-    skills ? (
+    includedSkills ? (
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -28,14 +29,14 @@ function Skills({ skills }: Props) {
         </div>
 
         <div className="relative grid justify-center grid-cols-3 gap-2 mt-12 lg:mt-14 xl:mt-24 lg:grid-cols-4 justify-items-center align-items-center lg:gap-5">
-          {skills.slice(0, skills.length / 2).map((skill) => (
+          {includedSkills.slice(0, includedSkills.length / 2).map((skill) => (
             <Skill
               key={skill._id}
               skill={skill}
             />
           ))}
 
-          {skills.slice(skills.length / 2, skills.length).map((skill) => (
+          {includedSkills.slice(includedSkills.length / 2, includedSkills.length).map((skill) => (
             <Skill
               key={skill._id}
               skill={skill}
