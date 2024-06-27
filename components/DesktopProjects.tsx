@@ -23,7 +23,7 @@ const DesktopProjects: React.FC<DesktopProjectsProps> = ({
 }) => {
     return (
         <>
-            <div key={currentProject._id} className="flex flex-col items-center justify-center h-screen p-4 mx-auto space-y-5 screen sm:p-5 snap-center md:p-20 lg:p-44">
+            <div key={currentProject._id} className="flex flex-col items-center justify-center p-4 mx-auto space-y-5 screen sm:p-5 snap-center md:p-20 lg:pt-52">
                 <div
                     id="video-container"
                 >
@@ -37,7 +37,7 @@ const DesktopProjects: React.FC<DesktopProjectsProps> = ({
                             transition={{ duration: 1.2 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="min-h-[500px] mx-auto aspect-video"
+                            className="mx-auto min-h-[350px] aspect-video"
                             id="ytplayer"
                             typeof="text/html"
                             src={`https://www.youtube.com/embed/${currentProject.demo_id}?playlist=${currentProject.demo_id}&autoplay=1&controls=0&enablejsapi=1&loop=1&playsinline=1&mute=1&showinfo=0&rel=0&iv_load_policy
@@ -78,7 +78,7 @@ const DesktopProjects: React.FC<DesktopProjectsProps> = ({
                                 alt={technology.title}
                                 width={250}
                                 height={250}
-                                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16"
                                 loading="lazy"
                             />
                         ))}

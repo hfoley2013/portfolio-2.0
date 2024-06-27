@@ -68,7 +68,7 @@ function MobileProjects({
                                     alt={technology.title}
                                     width={250}
                                     height={250}
-                                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                                    className="w-8 h-8 sm:w-10 sm:h-10"
                                     loading="lazy"
                                 />
                             ))}

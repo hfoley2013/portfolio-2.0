@@ -67,7 +67,7 @@ function ContactMe({ pageInfo }: Props) {
 
       <div className="max-h-[70vh] p-10">
         <div className="flex flex-col space-y-1 sm:mt-5 md:mt-3 lg:mt-0 sm:space-y-2 md:space-y-3">
-          <h4 className="text-lg font-semibold text-center sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
+          <h4 className="pb-4 text-lg font-semibold text-center sm:text-xl md:text-3xl md:pb-6 lg:text-3xl 2xl:text-4xl">
             Got a project in mind?{" "}
             <span className="decoration-[#F7AB0A]/50 underline">
               <a href={`mailto:${pageInfo?.email}`} className='hover:opacity-50'>
@@ -77,17 +77,17 @@ function ContactMe({ pageInfo }: Props) {
           </h4>
 
 
-          <div className="space-y-1 sm:space-y-2 md:space-y-3 lg:space-y-4">
-            <a href={`tel:${pageInfo?.phoneNumber}`} className="flex items-center justify-center space-x-5 hover:opacity-50">
+          <div className="pb-4 space-y-2 sm:space-y-2 md:space-y-3 lg:space-y-4">
+            <a href={`tel:${pageInfo?.phoneNumber}`} className="flex items-center space-x-5 xl:justify-center hover:opacity-50">
               <PhoneIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
               <p className="text-base sm:text-lg md:text-xl 2xl:text-2xl">{pageInfo?.phoneNumber}</p>
             </a>
-            <a href={`mailto:${pageInfo?.email}`} className="flex items-center justify-center space-x-5 hover:opacity-50">
+            <a href={`mailto:${pageInfo?.email}`} className="flex items-center space-x-5 xl:justify-center hover:opacity-50">
               <EnvelopeIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
               <p className="sm:text-lg md:text-xl 2xl:text-2xl">{pageInfo?.email}</p>
             </a>
 
-            <div className="flex items-center justify-center space-x-5">
+            <div className="flex items-center space-x-5 xl:justify-center">
               <MapPinIcon className="text-[#F7AB0A] h-5 w-5 sm:h-7 sm:w-7 animate-pulse" />
               <p className="sm:text-lg md:text-xl lg:text-2xl">{pageInfo?.address}</p>
             </div>

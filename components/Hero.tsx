@@ -44,7 +44,6 @@ export default function Hero({ pageInfo }: Props) {
             <a href="/#experience" className="heroButton">Experience</a>
             <a href="/#skills" className="heroButton">Skills</a>
             <a href="/#projects" className="heroButton">Projects</a>
-            {/* <a href="#resume" className="heroButton">Resume</a> */}
           </div>
         </div>
       </div>
